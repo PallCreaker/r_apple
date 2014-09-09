@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.5'
 # Use mysql2 as the databases for Active Record
-gem 'pg'
+gem 'mysql2', '~> 0.3.16'
 # rails server
 gem 'unicorn'
 # Use SCSS for stylesheets
