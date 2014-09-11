@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  user_name: MyString
+  fb_id: MyString
+  fb_name: MyString
+  status: 1
+  conpetition: 1
+  university: MyString
+  e_mail: MyString
+  image: MyString
+
+two:
+  id: 1
+  user_name: MyString
+  fb_id: MyString
+  fb_name: MyString
+  status: 1
+  conpetition: 1
+  university: MyString
+  e_mail: MyString
+  image: MyString
