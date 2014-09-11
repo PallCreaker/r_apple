@@ -2,6 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+time = 0
+
+StartTimer = ->
+	timerID = setInterval("Timer()", 1000)
+	return
+
+
+StopTimer = ->
+	clearOnterval(timerID)
+	return
+
+
+Timer = ->
+	time++
+	console.log(time)
+	if time > 180
+		StopTimer()
+		alert("タイマー")
+
 
 scoring = (quiz) ->
 	all_count = quiz.correct_count + quiz.incorrect_count
@@ -60,5 +79,8 @@ ready = ->
 				return
 		return
 
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
+
+StartTimer();
