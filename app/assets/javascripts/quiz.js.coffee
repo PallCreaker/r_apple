@@ -8,6 +8,7 @@ scoring = (quiz) ->
 	score = Math.floor(10 * quiz.correct_count / all_count)
 	return score
 
+
 shuffleArray = (array) ->
 
 	i = array.length - 1
@@ -18,7 +19,8 @@ shuffleArray = (array) ->
 	    array[i] = array[j]
 	    array[j] = temp
 	    i--
- 	return array
+	return array
+
 
 next_quiz = (quiz) ->
 
@@ -29,6 +31,13 @@ next_quiz = (quiz) ->
 	$(".choice2").text(choices[1])
 	$(".choice3").text(choices[2])
 	$(".choice4").text(choices[3])
+
+
+judge = (quiz, text)->
+	if text == quiz.ans1
+		return true
+	else
+		return false
 
 
 ready = ->
