@@ -3,21 +3,21 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 time = 0
+timerID = 0
 
 StartTimer = ->
-	timerID = setInterval("Timer()", 1000)
+	timerID = setInterval(Timer, 1000)
 	return
 
 
 StopTimer = ->
-	clearOnterval(timerID)
+	clearInterval(timerID)
 	return
 
-
 Timer = ->
-	time++
+	time = time + 1
 	console.log(time)
-	if time > 180
+	if time == 180
 		StopTimer()
 		alert("タイマー")
 
