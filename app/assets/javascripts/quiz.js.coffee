@@ -4,6 +4,7 @@
 
 time = 0
 timerID = 0
+quiz = 0
 
 StartTimer = ->
 	timerID = setInterval(Timer, 1000)
@@ -14,18 +15,18 @@ StopTimer = ->
 	clearInterval(timerID)
 	return
 
+
 Timer = ->
 	time = time + 1
-	console.log(time)
 	if time == 180
 		StopTimer()
 		alert("タイマー")
 
 
-scoring = (quiz) ->
-	all_count = quiz.correct_count + quiz.incorrect_count
-	score = Math.floor(10 * quiz.correct_count / all_count)
-	return score
+scoring = (q) ->
+	all_count = q.correct_count + q.incorrect_count
+	point = Math.floor(10 * q.correct_count / all_count)
+	return point
 
 
 shuffleArray = (array) ->
@@ -41,26 +42,33 @@ shuffleArray = (array) ->
 	return array
 
 
-next_quiz = (quiz) ->
-
-	choices = [quiz.ans1, quiz.ans2, quiz.ans3, quiz.ans4]
+next_quiz = (q) ->
+	quiz = q
+	choices = [q.ans1, q.ans2, q.ans3, q.ans4]
 	shuffleArray(choices)
-	$(".problem").text(quiz.problem)
+	$(".problem").text(q.problem)
 	$(".choice1").text(choices[0])
 	$(".choice2").text(choices[1])
 	$(".choice3").text(choices[2])
 	$(".choice4").text(choices[3])
 
 
-judge = (quiz, text)->
-	if text == quiz.ans1
+judge = (q, text)->
+	if text == q.ans1
 		return true
 	else
 		return false
 
 
 ready = ->
+	score = 0
 	$(".choices").on "click", ->
+		text = $(this).text()
+		console.log(score)
+		if judge(quiz, text)
+			score = score + scoring(quiz)
+		console.log(scoring(quiz))
+		$(".score").text("スコア" + score);
 		$.ajax
 			url: "selection"
 			type: "GET"
@@ -71,11 +79,10 @@ ready = ->
 
 			dataType: "json"
 			success: (data) ->
-				console.log(data)
+				next_quiz(data)
 				return
 
 			error: (data) ->
-				console.log(data)
 				return
 		return
 
@@ -83,4 +90,19 @@ ready = ->
 $(document).ready(ready)
 $(document).on('page:load', ready)
 
-StartTimer();
+StartTimer()
+$.ajax
+	url: "selection"
+	type: "GET"
+	data:
+		hoge: $(this).text()
+		id: 1
+		correct: true
+
+	dataType: "json"
+	success: (data) ->
+		next_quiz(data)
+		return
+
+	error: (data) ->
+		return

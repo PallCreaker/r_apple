@@ -3,6 +3,6 @@ class QuizController < ApplicationController
   end
 
   def selection
-  	render json: params.to_json
+  	render json: Quiz.all.sample(1).first.to_json
   end
 end
