@@ -67,15 +67,17 @@ ready = ->
 		console.log(score)
 		if judge(quiz, text)
 			score = score + scoring(quiz)
+		else
+			score = score - scoring(quiz)
 		console.log(scoring(quiz))
 		$(".score").text("スコア" + score);
 		$.ajax
 			url: "selection"
 			type: "GET"
 			data:
-				hoge: $(this).text()
-				id: 1
-				correct: true
+				judge: true
+				id: quiz.id
+				correct: judge(quiz, text)
 
 			dataType: "json"
 			success: (data) ->
@@ -94,11 +96,6 @@ StartTimer()
 $.ajax
 	url: "selection"
 	type: "GET"
-	data:
-		hoge: $(this).text()
-		id: 1
-		correct: true
-
 	dataType: "json"
 	success: (data) ->
 		next_quiz(data)
