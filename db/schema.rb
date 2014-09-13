@@ -42,9 +42,7 @@ ActiveRecord::Schema.define(version: 20140912063403) do
 
   create_table "users", force: true do |t|
     t.string   "user_name"
-    t.string   "fb_id"
-    t.string   "fb_name"
-    t.integer  "status"
+    t.integer  "status",                 default: 0
     t.integer  "conpetition"
     t.string   "university"
     t.string   "image"
