@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911090631) do
+ActiveRecord::Schema.define(version: 20140912063403) do
 
   create_table "competitions", force: true do |t|
     t.integer  "user_id"
@@ -60,9 +60,14 @@ ActiveRecord::Schema.define(version: 20140911090631) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "gender"
+    t.string   "uid",                    default: "", null: false
+    t.string   "provider",               default: "", null: false
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
 end
