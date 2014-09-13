@@ -14,4 +14,12 @@ class QuizController < ApplicationController
   	end
   	render json: Quiz.all.sample(1).first.to_json
   end
+
+  def complete
+    raw = params
+    # あとでcurrent_userからuser_id, competition_idを貰うようにする
+    Score.create(score: raw[:score])
+    #　あとで結果画面の遷移に切り替える
+    render json: raw
+  end
 end

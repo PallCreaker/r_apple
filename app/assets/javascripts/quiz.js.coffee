@@ -5,6 +5,8 @@
 time = 0
 timerID = 0
 quiz = 0
+score = 0
+
 
 StartTimer = ->
 	timerID = setInterval(Timer, 1000)
@@ -20,7 +22,18 @@ Timer = ->
 	time = time + 1
 	if time == 180
 		StopTimer()
-		alert("タイマー")
+		$.ajax
+			url: "complete"
+			type: "GET"
+			data:
+				score: score
+			dataType: "json"
+			success: (data) ->
+				#あとで消す
+				alert(data.score)
+				return
+			error: (data) ->
+				return
 
 
 scoring = (q) ->
@@ -61,7 +74,6 @@ judge = (q, text)->
 
 
 ready = ->
-	score = 0
 	$(".choices").on "click", ->
 		text = $(this).text()
 		console.log(score)
