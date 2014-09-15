@@ -38,7 +38,7 @@ Timer = ->
 
 scoring = (q) ->
 	all_count = q.correct_count + q.incorrect_count
-	point = Math.floor(10 * q.incorrect_count / all_count)+1
+	point = Math.floor(10 * q.correct_count / all_count)
 	return point
 
 
@@ -68,16 +68,16 @@ next_quiz = (q) ->
 
 judge = (q, text)->
 	if text == q.ans1
-		return 1
+		return true
 	else
-		return 2
+		return false
 
 
 ready = ->
 	$(".choices").on "click", ->
 		text = $(this).text()
 		console.log(score)
-		if judge(quiz, text) == 1
+		if judge(quiz, text)
 			score = score + scoring(quiz)
 		else
 			score = score - scoring(quiz)
