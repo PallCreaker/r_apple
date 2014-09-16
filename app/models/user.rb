@@ -16,8 +16,6 @@ class User < ActiveRecord::Base
         image:    auth.info.image,
         gender:   auth.extra.raw_info.gender,
       )
-    #p user.errors.full_messages 
-    #user.save(:validate => false)
 
     end
     user
