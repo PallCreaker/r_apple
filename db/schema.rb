@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140912063403) do
   end
 
   create_table "scores", force: true do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.integer  "competition_id"
     t.integer  "score"
     t.datetime "created_at"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20140912063403) do
     t.integer  "gender",                 default: 1
     t.string   "fb_id",                  default: "", null: false
     t.string   "provider",               default: "", null: false
-    t.string   "name"
+    t.string   "fb_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
