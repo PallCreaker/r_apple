@@ -80,7 +80,7 @@ ready = ->
 		if judge(quiz, text) == 1
 			score = score + scoring(quiz)
 		else
-			score = score - scoring(quiz)
+			score = score - (10 - scoring(quiz))
 		console.log(scoring(quiz))
 		$(".score").text("スコア" + score);
 		$.ajax
