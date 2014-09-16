@@ -1,8 +1,8 @@
 class AddOmniauthColumnsToUsers < ActiveRecord::Migration
-	def change
-		add_column :users, :fb_id,      :string, null: false, default: ""
-		add_column :users, :provider, :string, null: false, default: ""
-		add_column :users, :name,     :string
-		add_index :users, [:uid, :provider], unique: true
-	end
+  def change
+    add_column :users, :fb_id,      :string, null: false, default: ""
+    add_column :users, :provider, :string, null: false, default: ""
+    add_column :users, :name,     :string
+    add_index :users, [:uid, :provider], unique: true
+  end
 end

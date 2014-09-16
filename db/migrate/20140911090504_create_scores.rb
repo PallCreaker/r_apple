@@ -4,7 +4,6 @@ class CreateScores < ActiveRecord::Migration
       t.string :fb_id
       t.integer :competition_id
       t.integer :score
-
       t.timestamps
     end
   end
