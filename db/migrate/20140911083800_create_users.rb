@@ -4,7 +4,6 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :user_name
       t.integer :status, default: 0				
-      t.integer :conpetition
       t.string :university
       t.string :image
       
