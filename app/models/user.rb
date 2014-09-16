@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 			  password:		Devise.friendly_token[0,20],
 			  image:		auth.info.image,
 			  gender:		auth.extra.raw_info.gender,
-			  unibersity:	auth.extra.raw_info.college
+			  #unibersity:	auth.extra.raw_info.college
 		  )
 		  user.save(:validate => false)
 	  end
