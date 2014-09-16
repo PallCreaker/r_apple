@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20140912063403) do
   end
 
   create_table "scores", force: true do |t|
-    t.string   "fb_id"
+    t.string   "user_id"
     t.integer  "competition_id"
     t.integer  "score"
     t.datetime "created_at"
