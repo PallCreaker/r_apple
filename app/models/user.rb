@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
     user = User.where(:provider => auth.provider, :fb_id => auth.uid).first
     unless user
       user = User.create(
-        name:     auth.extra.raw_info.name,
+        fb_name:     auth.extra.raw_info.name,
         provider: auth.provider,
         fb_id:    auth.uid,
         email:    auth.info.email,
