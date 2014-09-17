@@ -18,8 +18,11 @@ before_action :sign_in_required
 
   def complete
     raw = params
-    # あとでcurrent_userからuser_id, competition_idを貰うようにする
-    Score.create(score: raw[:score])
+    Score.create(user_id: current_user.id, competition_id:  score: raw[:score])
+    if current_user.status == 0
+      current_user.status = 1
+      current_user.save
+    end
     #　あとで結果画面の遷移に切り替える
     render json: raw
   end
