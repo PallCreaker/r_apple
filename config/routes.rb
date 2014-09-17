@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'quiz/index'
+  get "quiz/selection"
+  get "quiz/complete"
   devise_for :users, :controllers => {
     :sessions           =>  "users/sessions",
     :registrations      =>  "users/registrations",
