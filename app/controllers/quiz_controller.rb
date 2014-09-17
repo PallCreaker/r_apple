@@ -18,7 +18,7 @@ before_action :sign_in_required
 
   def complete
     raw = params
-    Score.create(user_id: current_user.id, competition_id:  score: raw[:score])
+    Score.create(user_id: current_user.id, score: raw[:score])
     if current_user.status == 0
       current_user.status = 1
       current_user.save
