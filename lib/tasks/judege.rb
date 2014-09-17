@@ -1,6 +1,6 @@
 class HelloBatch
   def self.execute
-    puts 'hello world'
+    Quiz.create
   end
 end
 
