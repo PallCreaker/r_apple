@@ -178,9 +178,9 @@ DEPENDENCIES
   jquery-rails
   koala
   mysql2 (~> 0.3.16)
-  pry-rails
   omniauth
   omniauth-facebook
+  pry-rails
   rails (= 4.1.5)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
