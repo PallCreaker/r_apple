@@ -1,6 +1,0 @@
-<h1>facebookログイン画面</h1>
-<% if user_signed_in? %>
-  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "facebookログイン", user_omniauth_authorize_path(:facebook), :class => 'navbar-link' %>
-<% end %>
