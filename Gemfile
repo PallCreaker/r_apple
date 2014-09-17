@@ -36,7 +36,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 
 gem 'omniauth'
-
+gem 'whenever', :require => false
 gem 'koala'
 
 # Use ActiveModel has_secure_password
