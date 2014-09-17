@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :output, {:error => 'log/error.log', :standard => 'log/cron.log'}
+set :output, {:error => 'log/cron.log', :standard => 'log/cron.log'}
 every 3.minutes do
   runner "lib/tasks/judege.rb"
 end
