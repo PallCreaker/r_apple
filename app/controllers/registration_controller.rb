@@ -8,11 +8,15 @@ before_action :set_user, only: [:index, :edit, :update]
   end
 
   def update
-		if @user.update(user_params)
-			@user.status = 1
-			redirect_to :controller => "registration", :action => "index"
+		if user_signed_in?
+			if @user.update(user_params)
+				@user.status = 1
+				redirect_to :controller => "registration", :action => "index"
+			else
+				render 'edit'
+			end
 		else
-			render 'edit'
+			render 'index'
 		end
   end
 	private
