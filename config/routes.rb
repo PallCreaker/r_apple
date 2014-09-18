@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "quiz/complete"
 	get "matchinglist/index"
 	get "matchinglist/create"
+	get "home/index"
   devise_for :users, :controllers => {
     :sessions           =>  "users/sessions",
     :registrations      =>  "users/registrations",

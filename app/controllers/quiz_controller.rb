@@ -23,7 +23,7 @@ before_action :sign_in_required
       current_user.status = 2
       current_user.save
     end
-    #　あとで結果画面の遷移に切り替える
+    # あとで結果画面の遷移に切り替える
     render json: raw
   end
 end
