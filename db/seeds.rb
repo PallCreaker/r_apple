@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
+Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
+Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
+Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
+Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
