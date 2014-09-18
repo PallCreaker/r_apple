@@ -1,28 +1,23 @@
 class RegistrationController < ApplicationController
-before_action :set_user, only: [:index, :edit, :update]
+before_action :authenticate_user!
 
   def index
   end
 
   def edit
+		confirm_status
   end
 
   def update
-		if user_signed_in?
-			if @user.update(user_params)
-				@user.status = 1
-				redirect_to :controller => "registration", :action => "index"
-			else
-				render 'edit'
-			end
+		if current_user.update(user_params)
+			current_user.status = 1
+			#quiz画面に飛ばすように変更する
+			redirect_to :controller => "registration", :action => "index"
 		else
-			render 'index'
+			render 'edit'
 		end
   end
 	private
-	def set_user
-		@user = current_user
-	end
 	def user_params
 		params.require(:user).permit(:university, :user_name, :status)
 	end
