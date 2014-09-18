@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20140918041550) do
   create_table "competitions", force: true do |t|
     t.integer  "user_id"
     t.integer  "competition_id"
+    t.integer  "result_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

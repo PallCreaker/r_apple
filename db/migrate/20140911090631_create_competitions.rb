@@ -3,7 +3,7 @@ class CreateCompetitions < ActiveRecord::Migration
     create_table :competitions do |t|
       t.integer :user_id
       t.integer :competition_id
-
+      t.integer :result_id
       t.timestamps
     end
   end
