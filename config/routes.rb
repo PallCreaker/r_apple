@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   patch 'registration/update'
   get 'registration/index'
   root :to => 'registration#index'
-  #resource(:user)
   get 'quiz/index'
   get "quiz/selection"
   get "quiz/complete"

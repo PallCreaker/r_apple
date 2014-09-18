@@ -1,7 +1,10 @@
 class RegistrationController < ApplicationController
-before_action :authenticate_user!
+before_action :authenticate_user!, only: [:edit, :update]
 
   def index
+		if user_signed_in?
+			reditect_to '/registration/edit'
+		end
   end
 
   def edit
@@ -12,7 +15,7 @@ before_action :authenticate_user!
 		if current_user.update(user_params)
 			current_user.status = 1
 			#quiz画面に飛ばすように変更する
-			redirect_to :controller => "registration", :action => "index"
+			redirect_to :controller => "quiz", :action => "index"
 		else
 			render 'edit'
 		end
