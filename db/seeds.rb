@@ -10,3 +10,9 @@ Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", 
 Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
 Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
 Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
+User.create
+Competition.create(user_id: 1, competition_id: 1)
+Score.create(user_id: 1,score: 990)
+Score.create(user_id: 1,score: 90)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:1, judge:true)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:1, judge:true)
