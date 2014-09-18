@@ -1,0 +1,10 @@
+<h1>大学名，ニックネーム入力画面</h1>
+
+<%= form_for (current_user), :url => {:action => 'update'} do |f| %>
+  <%= f.label :university %><br />
+  <%= f.select :university, [["同志社大学","doshisha"], ["慶應大学","keio"], ["早稲田大学","waseda"]] %><br />
+  <%= f.label :user_name %><br />
+  <%= f.text_field :user_name %><br />
+  <%= f.submit '送信' %>
+<% end %>
+
