@@ -10,3 +10,6 @@ Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", 
 Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
 Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
 Quiz.create(problem:"apple", ans1:"りんご", ans2:"なし", ans3:"ぶどう", ans4:"パイナップル")
+
+User.create(user_name:"たなか",university:"doshisha",gender:1,password:"11111111",email: 'hoge@example.com')
+User.create(user_name:"すずき",university:"doshisha",gender:1,password:"11111111",email: 'hogehoge@example.com')

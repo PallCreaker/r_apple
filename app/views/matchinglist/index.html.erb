@@ -1,12 +1,5 @@
 <h1>マッチングリスト</h1>
 <% @users.each do |user| %>
-	<!--
-	<%= form_for (@competition), :url => {:action => 'create'} do |f| %>
-		<%= f.label user.user_name %>
-		<%= f.text_field :competition_id %>
-		<%= f.submit '宣戦布告！' %>
-	<% end %>
-	-->
 	<%= user.user_name %>
 	<%= link_to 'matching', :controller => 'matchinglist', :action => 'create', :competition_id => user %>
 <% end %>
