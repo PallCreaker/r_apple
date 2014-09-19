@@ -24,3 +24,8 @@ Score.create(user_id: 3,score: 700)
 Score.create(user_id: 4,score: 600)
 
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
+
+Quiz.create(problem:"gross", ans1:"総計の", ans2:"世界の", ans3:"草", ans4:"接続")
+Quiz.create(problem:"gross", ans1:"総計の", ans2:"世界の", ans3:"草", ans4:"接続")
+Quiz.create(problem:"gross", ans1:"総計の", ans2:"世界の", ans3:"草", ans4:"接続")
+Quiz.create(problem:"gross", ans1:"総計の", ans2:"世界の", ans3:"草", ans4:"接続")

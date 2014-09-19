@@ -20,7 +20,7 @@ StopTimer = ->
 
 Timer = ->
     time = time + 1
-    if time == 3
+    if time == 10
         StopTimer()
         $.ajax
             url: "complete"
