@@ -17,6 +17,7 @@ before_action :sign_in_required
   end
 
   def complete
+    #binding.pry
     raw = params
     Score.create(user_id: current_user.id, score: raw[:score])
     if current_user.status == 1
