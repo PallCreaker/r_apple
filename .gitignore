@@ -31,4 +31,5 @@
 
 #env
 log/*.pid
+.env
 

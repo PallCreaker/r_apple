@@ -41,6 +41,9 @@ gem 'koala'
 # a package manager for the web
 gem 'bower-rails', '~> 0.8.3'
 
+# environment variables
+gem 'dotenv', '~> 0.11.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
