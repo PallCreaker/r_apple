@@ -38,6 +38,7 @@ gem 'omniauth'
 
 # a package manager for the web
 gem 'bower-rails', '~> 0.8.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
