@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ratchet/dist/js/ratchet.min.js
 //= stub quiz
 //= require_tree .
