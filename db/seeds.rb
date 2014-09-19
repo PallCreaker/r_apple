@@ -17,4 +17,4 @@ Result.create(competition_id:1, my_score_id: 1, competition_score_id:1, judge:tr
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:1, judge:true)
 
 User.create(user_name:"たなか",university:"doshisha",gender:1,password:"11111111",email: 'hoge@example.com')
-User.create(user_name:"すずき",university:"doshisha",gender:1,password:"11111111",email: 'hogehoge@example.com')
+#User.create(user_name:"すずき",university:"doshisha",gender:1,password:"11111111",email: 'hogehoge@example.com')
