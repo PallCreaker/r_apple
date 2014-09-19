@@ -26,7 +26,7 @@ class QuizController < ApplicationController
       current_user.save
     end
     # あとで結果画面の遷移に切り替える
-    #render json: raw
+    render json: raw
 		#render :js => "window.location.pathname = '#{root_path}'"
   end
 end

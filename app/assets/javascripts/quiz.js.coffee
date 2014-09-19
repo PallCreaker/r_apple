@@ -28,7 +28,8 @@ Timer = ->
             data:
                 score: score
             success: (data) ->
-                alert(data.score)
+                #alert(data.score)
+                window.location.pathname = '/'
                 return
             error: (data) ->
                 return
