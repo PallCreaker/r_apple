@@ -27,9 +27,7 @@ Timer = ->
             type: "GET"
             data:
                 score: score
-            dataType: "json"
             success: (data) ->
-              #あとで消す
                 alert(data.score)
                 return
             error: (data) ->

@@ -1,0 +1,9 @@
+<% unless controller.controller_name == 'users/omniauth_callbacks' %>
+
+<% else %>
+  <header class="bar bar-nav">
+    <h1 class="title"><%= controller.controller_name %></h1>
+  </header>
+<% end %>
+<%= controller.controller_name %>
+<%= controller.action_name %>
