@@ -4,7 +4,7 @@ class CreateResults < ActiveRecord::Migration
       t.integer :competition_id
       t.integer :my_score_id
       t.integer :competition_score_id
-      t.boolean :judge
+      t.boolean :decision
 
       t.timestamps
     end

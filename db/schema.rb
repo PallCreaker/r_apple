@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140918041550) do
     t.integer  "competition_id"
     t.integer  "my_score_id"
     t.integer  "competition_score_id"
-    t.boolean  "judge"
+    t.boolean  "decision"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
