@@ -22,5 +22,9 @@ set :environment, :development
 set :output, {:error => 'log/cron.log', :standard => 'log/cron.log'}
 every :day, :at => '0:00am' do
 #every :day, :at => '7:18pm' do
-  runner "lib/tasks/judege.rb"
+  runner "lib/tasks/daily_judge.rb"
+end
+every :monday, :at => '0:00am' do
+#every :day, :at => '0:59am' do
+  runner "lib/tasks/weekly_judge.rb"
 end
