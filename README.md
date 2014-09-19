@@ -20,6 +20,7 @@ bundle install --path vendor/bundle
 rake db:create # bundle exec rake db:create でも。
 rake db:migrate
 rake db:seed
+bundle exec whenever --update-crontab
 ```
 
 ### 開発環境（各自のローカル）

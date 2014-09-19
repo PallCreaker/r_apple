@@ -28,3 +28,8 @@
 
 # bower install path
 /vendor/assets/bower_components/*
+
+#env
+log/*.pid
+.env
+
