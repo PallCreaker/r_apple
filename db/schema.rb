@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20140918041550) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "gender",                 default: 1
+    t.integer  "gender"
     t.string   "fb_id",                  default: "", null: false
     t.string   "provider",               default: "", null: false
     t.string   "fb_name"
