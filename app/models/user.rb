@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
         image:    auth.info.image,
         gender:   auth.extra.raw_info.gender,
       )
-
     end
     user
   end

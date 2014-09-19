@@ -25,3 +25,10 @@
 
 # Ignore .ruby-version
 .ruby-version
+
+# bower install path
+/vendor/assets/bower_components/*
+
+#env
+log/*.pid
+

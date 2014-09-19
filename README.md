@@ -6,6 +6,12 @@
 + [参考になったURLはここにナレッジためていこう](https://github.com/RHDHR/r_apple/wiki)
 
 ### 環境構築の仕方
+ node と bower が入ってない人は、
+```
+$brew install node 
+$npm install -g bower
+```
+
 ```
 git clone git@github.com:RHDHR/r_apple.git
 cp config/database.yml.sample config/database.yml
