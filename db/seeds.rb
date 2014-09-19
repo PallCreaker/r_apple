@@ -43,4 +43,23 @@ Quiz.create(problem:"pardon", ans1:"許し、許す", ans2:"聞こえない", an
 Quiz.create(problem:"dig", ans1:"掘る", ans2:"切り裂く", ans3:"連続", ans4:"永久")
 Quiz.create(problem:"domestic", ans1:"家庭内の、国内の", ans2:"暴力", ans3:"道理", ans4:"確実な")
 
+Competition.create(user_id: 1, competition_id: 2)
+Competition.create(user_id: 2, competition_id: 3)
+Competition.create(user_id: 4, competition_id: 3)
+
+Score.create(user_id: 1,score: 990)
+Score.create(user_id: 1,score: 90)
+Score.create(user_id: 2,score: 950)
+Score.create(user_id: 2,score: 800)
+Score.create(user_id: 3,score: 700)
+Score.create(user_id: 4,score: 600)
+
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
+
+User.create(user_name:"たなか",university:"doshisha",gender:1,password:"11111111",email:"hoge@example.com",fb_id:"aaa",provider:"facebook")
+User.create(user_name:"すずき",university:"doshisha",gender:1,password:"11111111",email:"hogehoge@example.com",fb_id:"bbb",provider:"facebook")
+User.create(user_name:"ささき",university:"keio",gender:1,password:"11111111",email:"sasaki@example.com",fb_id:"ccc",provider:"facebook")
+User.create(user_name:"かとう",university:"keio",gender:1,password:"11111111",email:"kato@example.com",fb_id:"ddd",provider:"facebook")
+User.create(user_name:"さいとう",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook")
+User.create(user_name:"こんどう",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook")
 User.create(user_name:"たなか",university:"doshisha",gender:1,password:"11111111",email: 'hoge@example.com')
