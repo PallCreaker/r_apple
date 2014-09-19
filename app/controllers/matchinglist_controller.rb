@@ -14,7 +14,6 @@ class MatchinglistController < ApplicationController
 		Competition.create(user_id: current_user.id , competition_id: params[:competition_id])
 		current_user.status = 3
 		current_user.save
-		# あとで対戦画面への遷移に変更する
-		redirect_to :controller => "quiz", :action => "index"
+		redirect_to :controller => "home", :action => "index"
 	end
 end
