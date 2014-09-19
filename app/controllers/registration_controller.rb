@@ -8,14 +8,15 @@ class RegistrationController < ApplicationController
   def update
     if current_user.update(user_params)
       current_user.status = 1
-      current_user.save
-      #quiz画面に飛ばすように変更する
-      redirect_to :controller => "quiz", :action => "index"
+        if current_user.save!
+          #quiz画面に飛ばすように変更する
+          redirect_to :controller => "quiz", :action => "index"
+        end
     else
-      render 'edit'
+      render 'index'
     end
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:university, :user_name, :status)
