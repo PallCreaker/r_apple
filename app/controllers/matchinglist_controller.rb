@@ -15,7 +15,7 @@ class MatchinglistController < ApplicationController
     current_user.status = 3
     current_user.save
     # あとで対戦画面への遷移に変更する
-    redirect_to :controller => "quiz", :action => "index"
+    redirect_to "/"
   end
 end
 
