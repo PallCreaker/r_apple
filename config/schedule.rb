@@ -20,7 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 set :environment, :development
 set :output, {:error => 'log/cron.log', :standard => 'log/cron.log'}
-every :day, :at => '0:00am' do
-#every :day, :at => '7:18pm' do
+#every :day, :at => '0:00am' do
+every :day, :at => '9:28' do
   runner "lib/tasks/judege.rb"
 end
