@@ -1,4 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
+  before_action :set_html_class
+  
   def new
     super
   end
@@ -10,4 +12,8 @@ class Users::SessionsController < Devise::SessionsController
   def destroy
     super
   end
+  private
+    def set_html_class
+      @style_class = 'display-none'
+    end
 end

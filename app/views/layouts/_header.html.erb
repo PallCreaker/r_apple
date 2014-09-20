@@ -1,3 +1,3 @@
-<header class="bar bar-nav <%= 'display-none' if controller.controller_name == 'sessions' %>">
+<header class="bar bar-nav <%= @style_class unless @style_class.nil? %>">
   <h1 class="title"><%= @title %></h1>
 </header>

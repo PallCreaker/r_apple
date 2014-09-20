@@ -1,5 +1,6 @@
 class QuizController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_html_class
 
   def index
     @title = '単語テスト中'
@@ -28,4 +29,9 @@ class QuizController < ApplicationController
     #　あとで結果画面の遷移に切り替える
     render json: raw
   end
+
+  private
+    def set_html_class
+      @style_class = 'normal'
+    end
 end

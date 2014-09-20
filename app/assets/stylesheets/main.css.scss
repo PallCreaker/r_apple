@@ -5,6 +5,10 @@ body{
             background-color: rgb(174,220,253);
             h1{color:white;}
         }
+        &.reversal{
+            background-color: white;
+            h1{color:rgb(174,220,253);}
+        }
     }
 }
 .display-none{display:none;}
