@@ -58,6 +58,8 @@ shuffleArray = (array) ->
 next_quiz = (q) ->
     # TODO: sleep処理を正しい場所。あと二度押しできるので改善
     sleep 500
+    $('.correct-flag').css("visibility","hidden");
+    $('.batu-flag').css("visibility","hidden");
     quiz = q
     choices = [q.ans1, q.ans2, q.ans3, q.ans4]
     shuffleArray(choices)
@@ -81,8 +83,10 @@ ready = ->
         console.log(score)
         if judge(quiz, text) == 1
             score = score + scoring(quiz)
+            $('.correct-flag').css("visibility","visible");
         else
             score = score - (10 - scoring(quiz))
+            $('.batu-flag').css("visibility","visible");
         $(".score").text("スコア" + score);
         $.ajax
             url: "selection"

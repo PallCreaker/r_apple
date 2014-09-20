@@ -98,6 +98,32 @@ body{
             text-align: right;
             margin: 4px 11px 0 0;
         }
+        .correct-flag {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            bottom: 20%;
+            background-image: url('/img/maru.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            visibility: hidden;
+            background-size: contain;
+        }
+        .batu-flag {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            bottom: 20%;
+            background-image: url('/img/batu.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            visibility: hidden;
+            background-size: contain;
+        }
     }
     .user-panel{
         padding: 15px;
