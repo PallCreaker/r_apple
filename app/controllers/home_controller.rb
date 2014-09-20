@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
     confirm_status
-    date = Date.today
+    date = DateTime.now
     from = date.beginning_of_week
     @myscore = []
     @enemyscore = []
