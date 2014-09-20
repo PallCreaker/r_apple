@@ -99,4 +99,35 @@ body{
             margin: 4px 11px 0 0;
         }
     }
+    .user-panel{
+        padding: 15px;
+        &.even{background-color: rgb(195,221,254)}
+        &.odd{background-color: rgb(254,233,238)}
+        img.user-photo{
+            float: left;
+            width: 160px;
+            border-radius: 100px;
+            &:hover{@include opacity(1)}
+        }
+        .user-info{
+            padding: 10px;
+            margin-top: 19px;
+            float: left;
+            img.fukoku{
+                width: 100px;
+                &:hover{@include opacity(.7)}
+            }
+            p.user-name {
+                font-size: 30px;
+            }
+            p.univ {
+                font-size: 16px;
+                margin: 0 0 0 4px;
+            }
+            p.score {
+                font-size: 16px;
+                margin-left: 4px;
+            }
+        }
+    }
 }

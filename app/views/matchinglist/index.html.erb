@@ -1,4 +1,11 @@
-<% @users.each do |user| %>
-	<%= user.user_name %>
-	<%= link_to 'matching', :controller => 'matchinglist', :action => 'create', :competition_id => user %>
+<% @users.each.with_index(1) do |user, index| %>
+  <div class="user-panel <%= index%2 == 0 ? 'even' : 'odd' %> cf">
+    <%= image_tag user.image, class: 'user-photo' %>
+    <div class="user-info">
+      <p class="user-name"><%= user.user_name %></p>
+      <p class="univ"><%= set_univ_for_convert user.university %></p>
+      <p class="score">180点</p>
+      <%= link_to image_tag('/img/sensenhukoku.png', class: 'fukoku'), :controller => 'matchinglist', :action => 'create', :competition_id => user %>
+    </div>
+  </div>
 <% end %>
