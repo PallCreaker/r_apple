@@ -2,6 +2,7 @@ class RegistrationController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @title = '大学名を入力してください'
     confirm_status
   end
 

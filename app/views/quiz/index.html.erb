@@ -1,11 +1,21 @@
-<h1 class = "problem">問題</h1>
-<ul>
-  <li class = "choices choice1">hoge1</li>
-  <li class = "choices choice2">hoge2</li>
-  <li class = "choices choice3">hoge3</li>
-  <li class = "choices choice4">hoge4</li>
-</ul>
-
-<p class = "score">スコア
-</p>
+﻿<div class="quiz">
+  <div class="probrem-panels">
+    <p class="problem-count">Q1</p>
+    <p class="problem"></p>
+  </div>
+  <div class="answer-panels">
+    <ul class="cf">
+      <li class="choices" id="ch1"></li>
+      <li class="choices" id="ch2"></li>
+      <li class="choices" id="ch3"></li>
+      <li class="choices" id="ch4"></li>
+    </ul>
+  </div>
+  <div class="time">
+    <div class="time-bar">
+      <div class="progress-bar"></div>
+    </div>
+    <div class="limit">残り時間 <span class="time-limit"></span>秒</div>
+  </div>
+</div>
 <%= javascript_include_tag 'quiz' %>
