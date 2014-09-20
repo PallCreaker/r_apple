@@ -18,9 +18,13 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-set :environment, :development
+set :environment, Rails.env
 set :output, {:error => 'log/cron.log', :standard => 'log/cron.log'}
-every :day, :at => '0:00am' do
-#every :day, :at => '7:18pm' do
-  runner "lib/tasks/judege.rb"
+#every :day, :at => '0:00am' do
+every :day, :at => '10:20am' do
+  runner "lib/tasks/daily_judge.rb"
+end
+#every :monday, :at => '0:00am' do
+every :day, :at => '10:20am' do
+  runner "lib/tasks/weekly_judge.rb"
 end
