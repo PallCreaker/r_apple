@@ -21,10 +21,10 @@
 set :environment, Rails.env
 set :output, {:error => 'log/cron.log', :standard => 'log/cron.log'}
 #every :day, :at => '0:00am' do
-every :day, :at => '10:45am' do
+every :day, :at => '10:50am' do
   runner "lib/tasks/daily_judge.rb"
 end
 #every :monday, :at => '0:00am' do
-every :day, :at => '10:20am' do
+every :day, :at => '10:50am' do
   runner "lib/tasks/weekly_judge.rb"
 end
