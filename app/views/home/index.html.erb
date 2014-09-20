@@ -2,18 +2,21 @@
 
 <ul>
 	<li>
-    my name : <%= current_user.user_name %>
+  my name : <%= current_user.user_name %>
   </li>
   <li>
-    enemy name : <%= @competition_username %>
+  enemy name : <%= @competition_username %>
 	</li>
   <li>
-    my score : <%= @myscore %>
+  my score : <%= @myscore %>
   </li>
   <li>
-    enemy score : <%= @enemyscore %>
+  enemy score : <%= @enemyscore %>
   </li>
   <li>
-    対戦始まった日 : <%= @create_result %>
+  勝ち : <%= @win_count %>
+  </li>
+  <li>
+  負け : <%= @loose_count %>
   </li>
 </ul>

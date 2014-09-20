@@ -12,7 +12,7 @@ User.create(user_name:"かとう",university:"keio",gender:1,password:"11111111"
 User.create(user_name:"さいとう",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook")
 User.create(user_name:"こんどう",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook")
 
-Competition.create(user_id: 1, competition_id: 2)
+Competition.create(user_id: 1, competition_id: 1)
 Competition.create(user_id: 2, competition_id: 3)
 Competition.create(user_id: 4, competition_id: 3)
 
@@ -23,6 +23,10 @@ Score.create(user_id: 2,score: 800)
 Score.create(user_id: 3,score: 700)
 Score.create(user_id: 4,score: 600)
 
+
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
 
 Quiz.create(problem:"gross", ans1:"総計の", ans2:"世界の", ans3:"草", ans4:"接続")
