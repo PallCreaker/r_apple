@@ -1,24 +1,18 @@
-require "date"
-
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
     confirm_status
     date = DateTime.now
     from = date.beginning_of_week
-    @myscore = []
-    @enemyscore = []
+    @my_score = []
+    @enemy_score = []
     1.upto(7){|day|
-      @myscore.push(Score.where(user_id:current_user.id, created_at:from...from+day).maximum('score'))
-    }
-    1.upto(7){|day|
-      @enemyscore.push(Score.where(user_id:Competition.where(user_id:current_user.id, created_at:from...from+day)).maximum('score'))
+      @my_score.push(Score.where(user_id:current_user.id, created_at:from...from+day).maximum('score'))
+      @enemy_score.push(Score.where(user_id:Competition.where(user_id:current_user.id, created_at:from...from+day)).maximum('score'))
     }
 
     @competition_username = Competition.where(user_id:current_user.id).last.competition_user.user_name
-
-
-
+    
     @my_competition = Result.where(competition_id:Competition.where(user_id:current_user.id).last.competition_user.id)
 
     @win_count = 0
