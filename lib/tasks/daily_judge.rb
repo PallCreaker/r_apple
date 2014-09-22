@@ -2,7 +2,7 @@ class ResultBatch
   def self.result
     Competition.where(is_fin: false).each do |competition|
       #今週の月曜日から最大のScoreを取得
-      now = Time.now.in_time_zone('Tokyo')
+      now = Time.current
       my_score = Score.where("created_at >= ? AND user_id = ?", now.beginning_of_week, competition.user_id).order('score').last
       comp_score = Score.where("created_at >= ? AND user_id = ?", now.beginning_of_week, competition.competition_id).order('score').last
       result = Result.new
