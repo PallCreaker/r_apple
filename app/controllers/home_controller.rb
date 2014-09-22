@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_html_class
+
   def index
     #confirm_status
     date = DateTime.now
@@ -13,13 +15,15 @@ class HomeController < ApplicationController
         @my_score.push(Score.where(user_id:current_user.id, created_at:from...from+day).maximum('score'))
         @enemy_score.push(Score.where(user_id:Competition.where(user_id:current_user.id, created_at:from...from+day)).maximum('score'))
       else
-        @my_score.push(nil)
-        @enemy_score.push(nil)
+        @my_score.push(0)
+        @enemy_score.push(0)
       end
     }
+    @enemy_user = Competition.get_enemy(current_user.id)
+    @my_competition = Result.get_result(@enemy_user.id)
 
-    @competition_username = Competition.where(user_id:current_user.id).last.competition_user.user_name
-    @my_competition = Result.where(competition_id:Competition.where(user_id:current_user.id).last.competition_user.id)
+
+@test = [0,600,0,0,0,0,0]
 
     @win_count = 0
     @loose_count = 0
@@ -31,4 +35,10 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  private
+    def set_html_class
+      @title = 'HOME'
+      @style_content = 'content-footer'
+    end
 end

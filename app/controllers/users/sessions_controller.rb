@@ -15,5 +15,6 @@ class Users::SessionsController < Devise::SessionsController
   private
     def set_html_class
       @style_class = 'display-none'
+      @style_content = 'login'
     end
 end
