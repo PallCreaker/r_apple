@@ -5,7 +5,7 @@ class HomeController < ApplicationController
     date = DateTime.now
     from = date.beginning_of_week
     week_day = date.wday
-    # TODO 以下の変数をまとめ，可能な部分をmodelに移行
+
     @my_score = []
     @enemy_score = []
     1.upto(7){|day|
@@ -21,7 +21,6 @@ class HomeController < ApplicationController
     @competition_username = Competition.where(user_id:current_user.id).last.competition_user.user_name
     @my_competition = Result.where(competition_id:Competition.where(user_id:current_user.id).last.competition_user.id)
 
-    # TODO loose_countはmy_competitionの数から計算
     @win_count = 0
     @loose_count = 0
     @my_competition.each do |mc|
