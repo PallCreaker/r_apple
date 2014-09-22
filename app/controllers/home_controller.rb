@@ -22,9 +22,6 @@ class HomeController < ApplicationController
     @enemy_user = Competition.get_enemy(current_user.id)
     @my_competition = Result.get_result(@enemy_user.id)
 
-
-@test = [0,600,0,0,0,0,0]
-
     @win_count = 0
     @loose_count = 0
     @my_competition.each do |mc|
