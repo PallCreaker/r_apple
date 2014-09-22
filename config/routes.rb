@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages
+
   patch "registration/update"
   get "registration/index"
   get "quiz/index"
