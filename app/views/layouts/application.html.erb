@@ -9,17 +9,10 @@
 </head>
 <body>
   <%= render :partial => "/layouts/header" %>
-	<div class="content">
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-
+	<div class="content <%= 'login' if controller.controller_name == 'sessions' %>">
     <%= yield %>
-    <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    <%#= link_to "logout", destroy_user_session_path, method: :delete %>
   </div>
-  <%= render :partial => "/layouts/header" %>
+  <%= render :partial => "/layouts/footer" %>
 </body>
 </html>

@@ -1,7 +1,9 @@
 class MatchinglistController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_html_class
 
   def index
+    @title = '宣戦布告する相手を選ぼう'
     if current_user.status != 2
       confirm_status
     end
@@ -20,5 +22,10 @@ class MatchinglistController < ApplicationController
     # あとで対戦画面への遷移に変更する
     redirect_to "/"
   end
+
+  private
+    def set_html_class
+      @style_class = 'reversal'
+    end
 end
 

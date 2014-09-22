@@ -6,7 +6,7 @@ time = 0
 timerID = 0
 quiz = 0
 score = 0
-
+time_limit = 190
 
 StartTimer = ->
     timerID = setInterval(Timer, 1000)
@@ -20,7 +20,9 @@ StopTimer = ->
 
 Timer = ->
     time = time + 1
-    if time == 90
+    $('div.progress-bar').css('width',100*time/time_limit+'%');
+    $('span.time-limit').text(time_limit-time);
+    if time == time_limit
         StopTimer()
         $.ajax
             url: "complete"
@@ -41,9 +43,7 @@ scoring = (q) ->
 
 
 shuffleArray = (array) ->
-
     i = array.length - 1
-
     while i > 0
         j = Math.floor(Math.random() * (i + 1))
         temp = array[i]
@@ -54,15 +54,17 @@ shuffleArray = (array) ->
 
 
 next_quiz = (q) ->
+    # TODO: sleep処理を正しい場所。あと二度押しできるので改善
+    sleep 500
+    $('.correct-flag').css("visibility","hidden");
+    $('.batu-flag').css("visibility","hidden");
     quiz = q
     choices = [q.ans1, q.ans2, q.ans3, q.ans4]
     shuffleArray(choices)
     $(".problem").text(q.problem)
-    $(".choice1").text(choices[0])
-    $(".choice2").text(choices[1])
-    $(".choice3").text(choices[2])
-    $(".choice4").text(choices[3])
-
+    for i in [1..4]
+        $("#ch" + i).empty() #onにした画像を読み込み時に、消す
+        $("#ch" + i).append('<img src="/img/number-' + i + '_off.png"><p class="choice' + i + '">' + choices[i-1] + '</p>')
 
 judge = (q, text)->
     if text == q.ans1
@@ -73,13 +75,16 @@ judge = (q, text)->
 
 ready = ->
     $(".choices").on "click", ->
+        # click 時に、画像をoff -> onにする
+        $(this ).find('img').attr('src', $(this).find('img').attr('src').replace('_off', '_on'));
         text = $(this).text()
         console.log(score)
         if judge(quiz, text) == 1
             score = score + scoring(quiz)
+            $('.correct-flag').css("visibility","visible");
         else
             score = score - (10 - scoring(quiz))
-        console.log(scoring(quiz))
+            $('.batu-flag').css("visibility","visible");
         $(".score").text("スコア" + score);
         $.ajax
             url: "selection"
@@ -110,6 +115,9 @@ $.ajax
     success: (data) ->
         next_quiz(data)
         return
-
     error: (data) ->
         return
+
+sleep = (ms) ->
+    start = new Date().getTime()
+    continue while new Date().getTime() - start < ms

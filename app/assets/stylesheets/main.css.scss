@@ -1,0 +1,159 @@
+@import "setting";
+body{
+    header{
+        &.bar{
+            background-color: rgb(174,220,253);
+            h1{color:white;}
+        }
+        &.reversal{
+            background-color: white;
+            h1{color:rgb(174,220,253);}
+        }
+    }
+}
+.display-none{display:none;}
+.login{
+    &.content{
+        background: url('/img/top.png') no-repeat;
+        background-size: contain;
+    }
+}
+.content{
+    input[type="image"]{width: 100%}
+    img{
+        width: 100%;
+        &:hover{@include opacity(.4);}
+        &:focus{@include opacity(.7);}
+    }
+    .sign-in{
+        position: absolute;
+        bottom: 25px;
+    }
+    .panel-innner{
+        margin-top:30px;
+        &.form{
+            select{
+                background-color: white !important;
+                height: 35px;
+                -webkit-appearance: normal !important;
+            }
+        }
+    }
+    .quiz{
+        .probrem-panels {
+            padding: 20px;
+            margin-left: 30px;
+            height: 200px;
+            p.problem-count {
+                font-size: 21px;
+            }
+            p.problem {
+                font-size: 36px;
+                margin-top: 20px;
+            }
+        }
+        $border-color:rgb(200,232,253);
+        .answer-panels{
+            ul{
+                padding: 0;
+                border: 1px solid $border-color;
+                li{
+                    float: left;
+                    width: 159px;
+                    padding: 23px 10px;
+                    list-style-type: none;
+                    border-right: 1px solid $border-color;
+                    img{
+                        width: 15px;
+                        float: left;
+                        &:hover{
+                            @include opacity(1);
+                        }
+                    }
+                    &.choices{p{float: left;margin: 4px 0 0 10px;}}
+                    &:nth-child(even){
+                        border-right:none;
+                    }
+                    &:nth-child(3){
+                        border-top: 1px solid $border-color;
+                    }
+                    &:nth-child(4){
+                        border-top: 1px solid $border-color;
+                    }
+                }
+            }
+        }
+        .time-bar{
+            height: 9px;
+            background-color: rgb(174,219,252);
+            .progress-bar{
+                background-color:rgb(93,186,249);
+                height: 9px;
+                width: 0%;
+            }
+        }
+        .limit {
+            font-size: 12px;
+            color: gray;
+            text-align: right;
+            margin: 4px 11px 0 0;
+        }
+        .correct-flag {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            bottom: 20%;
+            background-image: url('/img/maru.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            visibility: hidden;
+            background-size: contain;
+        }
+        .batu-flag {
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            top: 20%;
+            left: 20%;
+            bottom: 20%;
+            background-image: url('/img/batu.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            visibility: hidden;
+            background-size: contain;
+        }
+    }
+    .user-panel{
+        padding: 15px;
+        &.even{background-color: rgb(195,221,254)}
+        &.odd{background-color: rgb(254,233,238)}
+        img.user-photo{
+            float: left;
+            width: 160px;
+            border-radius: 100px;
+            &:hover{@include opacity(1)}
+        }
+        .user-info{
+            padding: 10px;
+            margin-top: 19px;
+            float: left;
+            img.fukoku{
+                width: 100px;
+                &:hover{@include opacity(.7)}
+            }
+            p.user-name {
+                font-size: 30px;
+            }
+            p.univ {
+                font-size: 16px;
+                margin: 0 0 0 4px;
+            }
+            p.score {
+                font-size: 16px;
+                margin-left: 4px;
+            }
+        }
+    }
+}

@@ -9,8 +9,9 @@
   "vendor": {
     "name": "bower-rails generated vendor assets",
     "dependencies": {
+      "ratchet"    : "https://github.com/twbs/ratchet.git",
+      "chart"      : "https://github.com/nnnick/Chart.js.git"
       // "three.js"    : "https://raw.github.com/mrdoob/three.js/master/build/three.js"
-      "ratchet"    : "https://github.com/twbs/ratchet.git"
     }
   }
 }
