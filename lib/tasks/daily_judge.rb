@@ -2,9 +2,10 @@ class ResultBatch
   def self.result
     Competition.where(is_fin: false).each do |competition|
       #今週の月曜日から最大のScoreを取得
-      this_day = Date.today
-      my_score = Score.where("created_at >= ? AND user_id = ?", this_day - (this_day.wday - 1), competition.user_id).order('score').last
-      comp_score = Score.where("created_at >= ? AND user_id = ?", this_day - (this_day.wday - 1), competition.competition_id).order('score').last
+      now = Time.current
+      #TODO SQL直接はコードをやめて、他の方法でqueryを投げられるようにする
+      my_score = Score.where("created_at >= ? AND user_id = ?", now.beginning_of_week, competition.user_id).order('score').last
+      comp_score = Score.where("created_at >= ? AND user_id = ?", now.beginning_of_week, competition.competition_id).order('score').last
       result = Result.new
       result.competition_id = competition.id
       if my_score.present? && comp_score.present?
