@@ -13,6 +13,7 @@ class MatchinglistController < ApplicationController
     else
       @users = User.where("gender = ? and university = ?", 0, current_user.university)
     end
+    
   end
 
   def create

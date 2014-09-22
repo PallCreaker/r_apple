@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
-    #confirm_status
+    if status == 2
+      confirm_status
+    end
     date = DateTime.now
     from = date.beginning_of_week
     week_day = date.wday
