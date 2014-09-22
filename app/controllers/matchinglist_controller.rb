@@ -2,7 +2,8 @@ class MatchinglistController < ApplicationController
   before_action :authenticate_user!
 
   def index
-  @competition = Competition.all
+    confirm_status
+    @competition = Competition.all
     if current_user.gender == 0
       @users = User.where("gender = ? and university = ?", 1, current_user.university)
     else

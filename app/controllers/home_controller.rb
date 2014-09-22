@@ -1,19 +1,24 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
   def index
-    confirm_status
+    #confirm_status
     date = DateTime.now
     from = date.beginning_of_week
+    week_day = date.wday
     # TODO 以下の変数をまとめ，可能な部分をmodelに移行
     @my_score = []
     @enemy_score = []
     1.upto(7){|day|
-      @my_score.push(Score.where(user_id:current_user.id, created_at:from...from+day).maximum('score'))
-      @enemy_score.push(Score.where(user_id:Competition.where(user_id:current_user.id, created_at:from...from+day)).maximum('score'))
+      if day <= week_day
+        @my_score.push(Score.where(user_id:current_user.id, created_at:from...from+day).maximum('score'))
+        @enemy_score.push(Score.where(user_id:Competition.where(user_id:current_user.id, created_at:from...from+day)).maximum('score'))
+      else
+        @my_score.push(nil)
+        @enemy_score.push(nil)
+      end
     }
 
     @competition_username = Competition.where(user_id:current_user.id).last.competition_user.user_name
-    
     @my_competition = Result.where(competition_id:Competition.where(user_id:current_user.id).last.competition_user.id)
 
     # TODO loose_countはmy_competitionの数から計算

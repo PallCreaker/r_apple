@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       redirect_to '/matchinglist/index'
     elsif current_user.status == 3
       # 対戦画面に飛ばすように変更する
-      # redirect_to '/'
+      redirect_to '/'
     end
   end
 end
