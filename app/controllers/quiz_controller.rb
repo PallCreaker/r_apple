@@ -20,14 +20,16 @@ class QuizController < ApplicationController
   end
 
   def complete
+    #binding.pry
     raw = params
     Score.create(user_id: current_user.id, score: raw[:score])
     if current_user.status == 1
       current_user.status = 2
       current_user.save
     end
-    #　あとで結果画面の遷移に切り替える
+    # あとで結果画面の遷移に切り替える
     render json: raw
+		#render :js => "window.location.pathname = '#{root_path}'"
   end
 
   private

@@ -29,10 +29,8 @@ Timer = ->
             type: "GET"
             data:
                 score: score
-            dataType: "json"
             success: (data) ->
-              #あとで消す
-                alert(data.score)
+                window.location.pathname = '/matchinglist/index'
                 return
             error: (data) ->
                 return

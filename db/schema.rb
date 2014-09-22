@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912063403) do
+ActiveRecord::Schema.define(version: 20140918041550) do
 
   create_table "competitions", force: true do |t|
     t.integer  "user_id"
     t.integer  "competition_id"
+    t.boolean  "is_fin",         default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,10 +33,19 @@ ActiveRecord::Schema.define(version: 20140912063403) do
     t.datetime "updated_at"
   end
 
+  create_table "results", force: true do |t|
+    t.integer  "competition_id"
+    t.integer  "my_score_id"
+    t.integer  "competition_score_id"
+    t.boolean  "decision"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "scores", force: true do |t|
     t.integer  "user_id"
     t.integer  "competition_id"
-    t.integer  "score"
+    t.integer  "score",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
