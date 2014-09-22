@@ -2,7 +2,10 @@ class MatchinglistController < ApplicationController
   before_action :authenticate_user!
 
   def index
-  @competition = Competition.all
+    if current_user.status != 2
+      confirm_status
+    end
+    @competition = Competition.all
     if current_user.gender == 0
       @users = User.where("gender = ? and university = ?", 1, current_user.university)
     else
@@ -15,7 +18,7 @@ class MatchinglistController < ApplicationController
     current_user.status = 3
     current_user.save
     # あとで対戦画面への遷移に変更する
-    redirect_to :controller => "quiz", :action => "index"
+    redirect_to "/"
   end
 end
 

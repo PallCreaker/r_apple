@@ -20,17 +20,15 @@ StopTimer = ->
 
 Timer = ->
     time = time + 1
-    if time == 180
+    if time == 90
         StopTimer()
         $.ajax
             url: "complete"
             type: "GET"
             data:
                 score: score
-            dataType: "json"
             success: (data) ->
-              #あとで消す
-                alert(data.score)
+                window.location.pathname = '/matchinglist/index'
                 return
             error: (data) ->
                 return
