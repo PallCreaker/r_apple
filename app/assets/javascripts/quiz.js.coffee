@@ -28,7 +28,6 @@ Timer = ->
             data:
                 score: score
             success: (data) ->
-                #alert(data.score)
                 window.location.pathname = '/matchinglist/index'
                 return
             error: (data) ->
