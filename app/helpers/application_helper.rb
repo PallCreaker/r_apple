@@ -6,7 +6,7 @@ module ApplicationHelper
   def set_univ_for_convert(univ)
     case univ
       when 'waseda'
-        'ワセダダイガク'
+        '早稲田大学'
       when 'doshisha'
         '同志社大学'
       when 'keio'
