@@ -10,3 +10,8 @@
     </div>
   </div>
 <% end %>
+<%= javascript_include_tag 'pixelate' %>
+<script>
+  $('.user-photo').pixelate({ value: 0.5 });
+  $('canvas').addClass("enemy-photo");
+</script>
