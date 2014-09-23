@@ -7,13 +7,15 @@ class MatchinglistController < ApplicationController
     if current_user.status != 2
       confirm_status
     end
-    @competition = Competition.all
+    #@competition = Competition.all
+    
+    # TODO 点数が高い人のみを表示させる
     if current_user.gender == 0
+      #@users = User.where("gender = ? and university = ? and Score.score >= ?", 1, current_user.university, Score.where("user_id = ?", current_user.id).maximum("score"))
       @users = User.where("gender = ? and university = ?", 1, current_user.university)
     else
       @users = User.where("gender = ? and university = ?", 0, current_user.university)
     end
-    
   end
 
   def create
