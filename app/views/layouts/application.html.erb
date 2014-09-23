@@ -9,10 +9,12 @@
 </head>
 <body>
   <%= render :partial => "/layouts/header" %>
-	<div class="content <%= 'login' if controller.controller_name == 'sessions' %>">
+	<div class="content <%= @style_content unless @style_content.nil? %>">
     <%= yield %>
     <%#= link_to "logout", destroy_user_session_path, method: :delete %>
   </div>
-  <%= render :partial => "/layouts/footer" %>
+  <% if %w[home message].include?(controller_name) %>
+    <%= render :partial => "/layouts/footer" %>
+  <% end %>
 </body>
 </html>
