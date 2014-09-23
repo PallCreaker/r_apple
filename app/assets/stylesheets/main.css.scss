@@ -1,6 +1,7 @@
 @import "setting";
 body{
     header{
+        .icon-refresh{color:white}
         &.bar{
             background-color: rgb(174,220,253);
             h1{color:white;}
@@ -19,6 +20,7 @@ body{
     }
 }
 .content{
+    &.content-footer{margin-bottom: 50px;}
     input[type="image"]{width: 100%}
     img{
         width: 100%;
@@ -155,5 +157,53 @@ body{
                 margin-left: 4px;
             }
         }
+        .enemy-photo{
+            margin-top: 18px;
+            float: left;
+            width: 130px;
+            border-radius: 100px;
+        }
+        .enemy-info{
+            padding: 13px;
+            width: 160px;
+            float: left;
+            .vs-user{
+                font-size: 22px;
+                .head{
+                    font-size: 10px;
+                    display: inline-block;
+                    margin-bottom: 7px;
+                }
+                .vs{
+                    font-size: 19px;
+                    font-weight: 200;
+                    margin-right: 7px;
+                }
+            }
+            .vs-detail{
+                color: rgb(75,174,250);
+                font-size: 18px;
+                line-height: 24px;
+                .removal-chat{
+                    font-size: 11px;
+                }
+            }
+        }
+    }
+}
+nav.footer{
+    background-color: #e6e6e6;
+    span{color: rgb(41,170,225);}
+    .icon-home-original:before{
+        content: url('/img/icon_home.png');
+    }
+    .icon-test:before{
+        content: url('/img/icon_test.png');
+    }
+    .icon-status:before{
+        content: url('/img/icon_status.png');
+    }
+    .icon-chat:before{
+        content: url('/img/icon_chat.png');
     }
 }
