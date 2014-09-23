@@ -3,9 +3,7 @@ class HomeController < ApplicationController
   before_action :set_html_class
 
   def index
-    if status == 2
-      confirm_status
-    end
+    congirm_status if status == 2
     date = DateTime.now
     from = date.beginning_of_week
     week_day = date.wday

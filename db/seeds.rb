@@ -9,9 +9,9 @@ User.create(user_name:"たなか",university:"doshisha",gender:1,password:"11111
 User.create(user_name:"すずき",university:"doshisha",gender:1,password:"11111111",email:"hogehoge@example.com",fb_id:"bbb",provider:"facebook", image:"http://graph.facebook.com/1480912385495090/picture")
 User.create(user_name:"きむら",university:"doshisha",gender:1,password:"11111111",email:"hogehogehoge@example.com",fb_id:"ggg",provider:"facebook", image:"http://graph.facebook.com/1480912385495090/picture")
 User.create(user_name:"ささき",university:"doshisha",gender:1,password:"11111111",email:"sasaki@example.com",fb_id:"ccc",provider:"facebook", image:"http://graph.facebook.com/1480912385495090/picture")
-User.create(user_name:"かとう",university:"keio",gender:1,password:"11111111",email:"kato@example.com",fb_id:"ddd",provider:"facebook")
-User.create(user_name:"さいとう",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook")
-User.create(user_name:"こんどう",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook")
+User.create(user_name:"かとう",university:"keio",gender:1,password:"11111111",email:"kato@example.com",fb_id:"ddd",provider:"facebook", image:"http://graph.facebook.com/1480912385495090/picture")
+User.create(user_name:"さいとう",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/1480912385495090/picture")
+User.create(user_name:"こんどう",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/1480912385495090/picture")
 
 Competition.create(user_id: 1, competition_id: 1)
 Competition.create(user_id: 2, competition_id: 3)
@@ -22,7 +22,11 @@ Score.create(user_id: 1,score: 90)
 Score.create(user_id: 2,score: 950)
 Score.create(user_id: 2,score: 800)
 Score.create(user_id: 3,score: 10)
-Score.create(user_id: 4,score: 60)
+Score.create(user_id: 4,score: 200)
+Score.create(user_id: 5,score: 300)
+Score.create(user_id: 6,score: 300)
+Score.create(user_id: 7,score: 500)
+
 
 
 
