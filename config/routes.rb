@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	get "matchinglist/index"
 	get "matchinglist/create"
 	get "home/index"
+  get "home/show"
   root :to => "home#index"
   devise_for :users, controllers: {
     sessions:           "users/sessions",
