@@ -4,6 +4,7 @@
  * Pixelate images with ease
  * License: MIT
  */
+ // #TODO コードをもっと理解してあとで凡庸的に使えるように書き直す
 (function(window, $) {
 	var pixelate = function() {
 		var defaults = {
