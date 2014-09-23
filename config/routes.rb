@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get "quiz/index"
   get "quiz/selection"
   get "quiz/complete"
-	get "matchinglist/index"
-	get "matchinglist/create"
-	get "home/index"
+  get "matchinglist/index"
+  get "matchinglist/create"
+  get "home/index"
   get "home/show"
   root :to => "home#index"
   devise_for :users, controllers: {
