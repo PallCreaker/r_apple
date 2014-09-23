@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :competitions
+  has_many :message
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :registerable,
@@ -9,7 +10,7 @@ class User < ActiveRecord::Base
     user = User.where(:provider => auth.provider, :fb_id => auth.uid).first
     unless user
       user = User.create(
-        fb_name:     auth.extra.raw_info.name,
+        fb_name:  auth.extra.raw_info.name,
         provider: auth.provider,
         fb_id:    auth.uid,
         email:    auth.info.email,
