@@ -7,14 +7,14 @@ class MatchinglistController < ApplicationController
     if current_user.status != 2
       confirm_status
     end
-    #@competition = Competition.all
-    
     # TODO 点数が高い人のみを表示させる
+    @enemy_max_score = Score.where(user_id:Competition.where(user_id:current_user.id)).maximum("score")
+
+    my_score = Score.where(user_id:current_user.id).maximum("score")
     if current_user.gender == 0
-      #@users = User.where("gender = ? and university = ? and Score.score >= ?", 1, current_user.university, Score.where("user_id = ?", current_user.id).maximum("score"))
-      @users = User.where("gender = ? and university = ?", 1, current_user.university)
+      @users = User.joins(:scores).where("gender = ? and university = ? and score > ?", 1, current_user.university, my_score).uniq
     else
-      @users = User.where("gender = ? and university = ?", 0, current_user.university)
+      @users = User.joins(:scores).where("gender = ? and university = ? and score > ?", 0, current_user.university, my_score).uniq
     end
   end
 
@@ -31,4 +31,3 @@ class MatchinglistController < ApplicationController
       @style_class = 'reversal'
     end
 end
-
