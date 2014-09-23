@@ -7,19 +7,35 @@ class MatchinglistController < ApplicationController
     if current_user.status != 2
       confirm_status
     end
-    @competition = Competition.all
+
+    my_score = Score.where(user_id:current_user.id).maximum("score")
     if current_user.gender == 0
-      @users = User.where("gender = ? and university = ?", 1, current_user.university)
+      @users = User.joins(:scores).where("gender = ? and university = ? and score > ?", 1, current_user.university, my_score).uniq
     else
-      @users = User.where("gender = ? and university = ?", 0, current_user.university)
+      @users = User.joins(:scores).where("gender = ? and university = ? and score > ?", 0, current_user.university, my_score).uniq
     end
+
+    if @users.count <= 5
+      if current_user.gender == 0
+        @users = User.joins(:scores).where("gender = ? and score > ?", 1, my_score).uniq 
+      else
+        @users = User.joins(:scores).where("gender = ? and score > ?", 0, my_score).uniq 
+      end
+    end
+
+    #if @users.count <= 5
+    #  if current_user.gender == 0
+    #    @users = User.where("gender = ?", 1).uniq
+    #  else
+    #    @users = User.where("gender = ?", 1).uniq
+    #  end
+    #end
   end
 
   def create
     Competition.create(user_id: current_user.id , competition_id: params[:competition_id])
     current_user.status = 3
     current_user.save
-    # あとで対戦画面への遷移に変更する
     redirect_to "/"
   end
 
@@ -28,4 +44,3 @@ class MatchinglistController < ApplicationController
       @style_class = 'reversal'
     end
 end
-
