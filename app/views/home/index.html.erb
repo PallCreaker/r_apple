@@ -1,5 +1,5 @@
 <div class="user-panel cf">
-  <%= image_tag @enemy_user.image, class: 'enemy-photo' %>
+  <%= image_tag @enemy_user.image+'?type=large', class: 'enemy-photo', id: "hoge" %>
   <div class="enemy-info">
     <p class="vs-user">
       <span class="head">あなたが宣戦布告した相手</span><br>
@@ -15,7 +15,12 @@
 <div class="my-enemy-graph">
   <canvas id="myChart" width="320" height="200"></canvas>
 </div>
+<%= javascript_include_tag 'pixelate' %>
 <script>
+  $('img#hoge').pixelate({ value: 0.5 });
+  $('canvas').addClass("enemy-photo");
+
+
   // Get the context of the canvas element we want to select
   var ctx = document.getElementById("myChart").getContext("2d");
   var data = {
