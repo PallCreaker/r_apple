@@ -23,13 +23,13 @@ class MatchinglistController < ApplicationController
       end
     end
 
-    #if @users.count <= 5
-    #  if current_user.gender == 0
-    #    @users = User.where("gender = ?", 1).uniq
-    #  else
-    #    @users = User.where("gender = ?", 1).uniq
-    #  end
-    #end
+    if @users.count <= 5
+      if current_user.gender == 0
+        @users = User.where("gender = ?", 1).uniq
+      else
+        @users = User.where("gender = ?", 1).uniq
+      end
+    end
   end
 
   def create
