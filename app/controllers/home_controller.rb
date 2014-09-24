@@ -46,6 +46,7 @@ class HomeController < ApplicationController
       }
 
       @now_score = Score.where(user_id:current_user.id, created_at:from...DateTime.now).maximum('score')
+      @new_score = Score.where(user_id:current_user.id).last.score
       @enemy_user = Competition.get_enemy(current_user.id)
       @my_competition = Result.get_result(@enemy_user.id)
     end

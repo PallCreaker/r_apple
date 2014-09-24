@@ -28,7 +28,7 @@ Score.create(user_id: 5,score: 300)
 Score.create(user_id: 6,score: 300)
 Score.create(user_id: 7,score: 500)
 
-Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)

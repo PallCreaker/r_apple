@@ -42,7 +42,7 @@ gem 'koala'
 gem 'bower-rails', '~> 0.8.3'
 
 # environment variables
-gem 'dotenv', '~> 0.11.1'
+gem 'dotenv-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
