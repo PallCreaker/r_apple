@@ -1,16 +1,17 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :message_confirm_status
+  before_action :message_confirm_status, :set_html_class
 
   def index
-    @all_messages = Message.where(user_id: current_user.id, partner_id: current_user.competitions.last.competition_id)
+    @all_messages = Message.where(competition_id: current_user.competitions.last.id)
+    @enemy = User.find(current_user.competitions.last.competition_id) # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
     @message = Message.new
   end
 
   def create
     @message = Message.new(message_params)
     @message.user_id = current_user.id
-    @message.partner_id = current_user.competitions.last.competition_id
+    @message.competition_id = current_user.competitions.last.id # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
 
     respond_to do |format|
       if @message.save
@@ -44,6 +45,10 @@ class MessagesController < ApplicationController
     def message_confirm_status
       confirm_status unless current_user.status == 3
       # TODO: win_countを計算する
+    end
+
+    def set_html_class
+      @title = 'Chat'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

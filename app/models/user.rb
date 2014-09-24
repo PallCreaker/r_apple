@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :competitions
   has_many :message
+  has_many :message, through: :competitions
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :registerable,
