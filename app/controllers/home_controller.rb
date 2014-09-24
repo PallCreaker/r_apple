@@ -54,5 +54,10 @@ class HomeController < ApplicationController
         end
       end
 
+      @mosaic_count = 3 - @win_count
+      if @mosaic_count < 0
+        @mosaic_count = 0
+      end
+
     end
 end

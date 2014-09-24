@@ -19,6 +19,8 @@ class ApplicationController < ActionController::Base
     elsif current_user.status == 3
       # 対戦画面に飛ばすように変更する
       redirect_to '/'
+    else
+      redirect_to '/user/sign_in'
     end
   end
 end
