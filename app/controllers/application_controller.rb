@@ -10,14 +10,14 @@ class ApplicationController < ActionController::Base
 
   private
   def confirm_status
-    if current_user.status == 1
-      # quiz画面に遷移
+    case current_user.status
+    when "temporary" then
+      redirect_to '/users/sign_in'
+    when "complete_name" then
       redirect_to '/quiz/index'
-    elsif current_user.status == 2
-      # list画面に飛ばすように変更する
+    when "complete_quiz" then
       redirect_to '/matchinglist/index'
-    elsif current_user.status == 3
-      # 対戦画面に飛ばすように変更する
+    when "complete_enemy" then
       redirect_to '/'
     end
   end

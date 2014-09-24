@@ -4,7 +4,7 @@ class MatchinglistController < ApplicationController
 
   def index
     @title = '宣戦布告する相手を選ぼう'
-    if current_user.status != 2
+    if current_user.status != "complete_quiz"
       confirm_status
     end
 
