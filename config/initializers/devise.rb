@@ -259,6 +259,6 @@ Devise.setup do |config|
   config.scoped_views = true
 
   #API key
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET']
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], {:scope => 'email', :image_size => 'large'}
 
 end
