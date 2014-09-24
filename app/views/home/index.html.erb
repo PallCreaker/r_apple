@@ -18,8 +18,7 @@
 <%= javascript_include_tag 'pixelate' %>
 <script>
   // #TODO あとでvalueに勝利数を突っ込む
-  $('.enemy-photo').pixelate({ value: 0.5 });
-  $('canvas').addClass("enemy-photo");
+  $('.enemy-photo').spoilerAlert({max: 3});
 
 
   // Get the context of the canvas element we want to select
