@@ -16,6 +16,10 @@
   <canvas id="myChart" width="320" height="200"></canvas>
 </div>
 <script>
+  // #TODO あとでvalueに勝利数を突っ込む
+  $('.enemy-photo').spoilerAlert({max: <%= @mosaic_count %>});
+
+
   // Get the context of the canvas element we want to select
   var ctx = document.getElementById("myChart").getContext("2d");
   var data = {
