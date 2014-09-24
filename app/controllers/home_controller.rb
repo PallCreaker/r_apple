@@ -1,12 +1,13 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
+  before_action :avoidance_redirect
   before_action :set_html_class
   before_action :set_score
   before_action :set_win_loose_count
 
+
   def index
-    congirm_status if status == 2
-          
+    congirm_status if current_user.status == "complete_quiz"
   end
 
   def show
@@ -16,6 +17,12 @@ class HomeController < ApplicationController
   end
 
   private
+    def avoidance_redirect
+      if current_user.status != "complete_enemy"
+        confirm_status
+      end
+    end
+
     def set_html_class
       @title = 'HOME'
       @style_content = 'content-footer'

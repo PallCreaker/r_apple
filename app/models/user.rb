@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :omniauthable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  enum status: [:temporary, :complete_name, :complete_quiz, :complete_enemy]
+
   def self.find_for_facebook_oauth(auth)
     user = User.find_by(:provider => auth.provider, :fb_id => auth.uid)
     unless user
