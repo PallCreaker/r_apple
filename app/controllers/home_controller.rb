@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
 
   def index
-    congirm_status if current_user.status == "complete_quiz"
+    
   end
 
   def show
@@ -18,9 +18,7 @@ class HomeController < ApplicationController
 
   private
     def avoidance_redirect
-      if current_user.status != "complete_enemy"
-        confirm_status
-      end
+      confirm_status unless current_user.complete_enemy?
     end
 
     def set_html_class
