@@ -43,12 +43,14 @@ class MessagesController < ApplicationController
 
   private
     def message_confirm_status
-      confirm_status unless current_user.status == 3
+      # confirm_status unless current_user.status == 3
       # TODO: win_countを計算する
+      @win_count = 3
     end
 
     def set_html_class
       @title = 'Chat'
+      @style_content = 'content-footer'
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
