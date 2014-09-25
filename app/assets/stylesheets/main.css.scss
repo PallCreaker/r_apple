@@ -78,7 +78,7 @@ body{
                             @include opacity(1);
                         }
                     }
-                    &.choices{p{float: left;margin: 4px 0 0 10px;}}
+                    &.choices{p{float: left;margin: 4px 0 0 10px;font-size:0.14w;}}
                     &:nth-child(even){
                         border-right:none;
                     }
