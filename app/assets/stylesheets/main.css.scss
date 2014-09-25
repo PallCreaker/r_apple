@@ -185,6 +185,7 @@ body{
             width: 130px;
             height: 130px;
             border-radius: 130px;
+            &:hover{@include opacity(1)}
         }
         .enemy-info{
             padding: 13px;
