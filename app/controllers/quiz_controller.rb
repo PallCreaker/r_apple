@@ -3,7 +3,7 @@ class QuizController < ApplicationController
   before_action :set_html_class
 
   def index
-    #confirm_status
+    confirm_status if current_user.temporary?
     @title = '単語テスト中'
   end
 
@@ -21,16 +21,12 @@ class QuizController < ApplicationController
   end
 
   def complete
-    #binding.pry
     raw = params
     Score.create(user_id: current_user.id, score: raw[:score])
-    if current_user.status == "complete_name"
-      current_user.status = "complete_quiz"
-      current_user.save
+    if current_user.complete_name?
+      current_user.complete_quiz!
     end
-    # あとで結果画面の遷移に切り替える
     render json: raw
-		#render :js => "window.location.pathname = '#{root_path}'"
   end
 
   private

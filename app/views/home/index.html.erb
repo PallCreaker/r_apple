@@ -5,6 +5,11 @@
       <span class="head">あなたが宣戦布告した相手</span><br>
       <span class="vs">VS</span><%= @enemy_user.user_name %>
     </p>
+    <p class="vs_detail">
+      最新の点数
+      <%= @new_score %>
+      点
+    </p>
     <p class="vs-detail">
       対戦開始<%= @my_competition.count %>日目<br>
       <%= @win_count %>勝 <%= @loose_count %>敗<br>

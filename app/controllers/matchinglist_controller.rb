@@ -4,9 +4,7 @@ class MatchinglistController < ApplicationController
 
   def index
     @title = '宣戦布告する相手を選ぼう'
-    if current_user.status != "complete_quiz"
-      confirm_status
-    end
+    confirm_status unless current_user.complete_quiz?
 
     my_score = Score.where(user_id:current_user.id).maximum("score")
     if current_user.gender == 0
@@ -34,8 +32,7 @@ class MatchinglistController < ApplicationController
 
   def create
     Competition.create(user_id: current_user.id , competition_id: params[:competition_id])
-    current_user.status = 3
-    current_user.save
+    current_user.complete_enemy!
     redirect_to "/"
   end
 
