@@ -30,8 +30,9 @@
     <%= yield %>
     <%#= link_to "logout", destroy_user_session_path, method: :delete %>
   </div>
-  <% if %w[home message].include?(controller_name) %>
+  <% if %w[home messages].include?(controller_name) %>
     <%= render :partial => "/layouts/footer" %>
   <% end %>
+  <%= controller_name %>
 </body>
 </html>
