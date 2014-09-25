@@ -22,7 +22,7 @@
 </div>
 <script>
   // #TODO あとでvalueに勝利数を突っ込む
-  $('.enemy-photo').spoilerAlert({max: <%= @mosaic_count %>});
+  $('.enemy-photo').spoilerAlert({max: 30, partial: <%= @mosaic_count*3 %>});
 
 
   // Get the context of the canvas element we want to select
