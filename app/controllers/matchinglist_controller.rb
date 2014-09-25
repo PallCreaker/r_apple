@@ -1,31 +1,31 @@
 class MatchinglistController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_html_class
+  before_action :authenticate_user!, :set_html_class
 
   def index
     @title = '宣戦布告する相手を選ぼう'
     confirm_status unless current_user.complete_quiz?
+    my_score = Score.my_score(current_user.id).maximum("score")
 
-    my_score = Score.where(user_id:current_user.id).maximum("score")
+    binding.pry
     if current_user.gender == 0
-      @users = User.joins(:scores).where("gender = ? and university = ? and score > ?", 1, current_user.university, my_score).uniq
+      @users = User.gender_filter(1).score_filter(my_score).university_filter(current_user.university)
     else
-      @users = User.joins(:scores).where("gender = ? and university = ? and score > ?", 0, current_user.university, my_score).uniq
+      @users = User.gender_filter(0).score_filter(my_score).university_filter(current_user.university)
     end
 
     if @users.count <= 5
       if current_user.gender == 0
-        @users = User.joins(:scores).where("gender = ? and score > ?", 1, my_score).uniq 
+        @users = User.gender_filter(1).score_filter(my_score)
       else
-        @users = User.joins(:scores).where("gender = ? and score > ?", 0, my_score).uniq 
+        @users = User.gender_filter(0).score_filter(my_score)
       end
     end
 
     if @users.count <= 5
       if current_user.gender == 0
-        @users = User.where("gender = ?", 1).uniq
+        @users = User.gender_filter(1)
       else
-        @users = User.where("gender = ?", 1).uniq
+        @users = User.gender_filter(2)
       end
     end
   end

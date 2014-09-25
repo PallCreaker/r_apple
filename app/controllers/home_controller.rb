@@ -1,19 +1,13 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
-  before_action :avoidance_redirect
-  before_action :set_html_class
-  before_action :set_score
-  before_action :set_win_loose_count
-
+  before_action :authenticate_user!, :avoidance_redirect, :set_html_class, :set_score, :set_win_loose_count
 
   def index
     
   end
 
   def show
-    @my_competition_count = Competition.where("user_id = ?", current_user.id).count
-    @my_average = Score.where("user_id = ?", current_user.id).average("score")
-    
+    @my_competition_count = Competition.count_competition(current_user.id)
+    @my_average = Score.my_score(current_user.id).average("score")
   end
 
   private
@@ -33,18 +27,22 @@ class HomeController < ApplicationController
   
       @my_score = []
       @enemy_score = []
+
       1.upto(7){|day|
         if day <= week_day
-          @my_score.push(Score.where(user_id:current_user.id, created_at:from...from+day).maximum('score'))
-          @enemy_score.push(Score.where(user_id:Competition.where(user_id:current_user.id, created_at:from...from+day)).maximum('score'))
+          @my_score.push(Score.select_time_score(current_user.id, from, from+day))
+          @enemy_score.push(Score.select_time_score(Competition.get_enemy(current_user.id), from, from+day))
         else
           @my_score.push(0)
           @enemy_score.push(0)
         end
       }
 
-      @now_score = Score.where(user_id:current_user.id, created_at:from...DateTime.now).maximum('score')
-      @new_score = Score.where(user_id:current_user.id).last.score
+
+      binding.pry
+
+      @now_score = Score.select_time_score(current_user.id, from, DateTime.now)
+      @new_score = Score.my_score(current_user.id).last.score
       @enemy_user = Competition.get_enemy(current_user.id)
       @my_competition = Result.get_result(@enemy_user.id)
     end

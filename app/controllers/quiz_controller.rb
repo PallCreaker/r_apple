@@ -11,9 +11,9 @@ class QuizController < ApplicationController
     if params[:judge]
       quiz = Quiz.find(params[:id])
       if params[:correct] == "1"
-        quiz.update(correct_count: quiz.correct_count+1)
+        quiz.update_count(quiz.correct_count)
       elsif params[:correct] == "2"
-        quiz.update(incorrect_count: quiz.incorrect_count+1)
+        quiz.update_count(quiz.incorrect_count)
       end
       quiz.save
     end

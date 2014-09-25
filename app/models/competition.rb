@@ -7,4 +7,9 @@ class Competition < ActiveRecord::Base
   def self.get_enemy(user_id)
     self.where(user_id: user_id).last.competition_user
   end
+
+  def self.count_competition(user_id)
+    self.where("user_id = ?", user_id).count
+  end
+
 end

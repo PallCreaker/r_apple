@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     case current_user.status
     when "temporary" then
       redirect_to '/registration/index'
-    when "complete_name" then
+    when "complete_name_and_university" then
       redirect_to '/quiz/index'
     when "complete_quiz" then
       redirect_to '/matchinglist/index'
