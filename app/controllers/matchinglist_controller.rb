@@ -31,7 +31,7 @@ class MatchinglistController < ApplicationController
   end
 
   def create
-    Competition.create(user_id: current_user.id , competition_id: params[:competition_id])
+    Competition.create(user_id: current_user.id , enemy_id: params[:enemy_id])
     current_user.complete_enemy!
     redirect_to "/"
   end
