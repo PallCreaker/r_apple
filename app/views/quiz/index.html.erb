@@ -1,24 +1,33 @@
 ﻿<div class="quiz">
-  <div class="probrem-panels">
-    <p class="problem-count">Q1</p>
-    <p class="problem"></p>
-  </div>
-  <div class="answer-panels">
-    <ul class="cf">
-      <li class="choices" id="ch1"></li>
-      <li class="choices" id="ch2"></li>
-      <li class="choices" id="ch3"></li>
-      <li class="choices" id="ch4"></li>
-    </ul>
-  </div>
-  <div class="time">
-    <div class="time-bar">
-      <div class="progress-bar"></div>
+  <div class = "playing hide">
+    <div class="probrem-panels">
+      <p class="problem-count">Q1</p>
+      <p class="problem"></p>
     </div>
-    <div class="limit">残り時間 <span class="time-limit"></span>秒</div>
+    <div class="answer-panels">
+      <ul class="cf">
+        <li class="choices" id="ch1"></li>
+        <li class="choices" id="ch2"></li>
+        <li class="choices" id="ch3"></li>
+        <li class="choices" id="ch4"></li>
+      </ul>
+    </div>
+    <div class="time">
+      <div class="time-bar">
+        <div class="progress-bar"></div>
+      </div>
+      <div class="limit">残り時間 <span class="time-limit"></span>秒</div>
+    </div>
   </div>
-  <div class = "correct-flag">
-  <div class = "batu-flag">
+  <div class = "instance introduction">
+    <p>制限時間90秒<br>TOEICテスト</p>
+    <p class = "introduction_text"></p>
+  </div>
+  <div class = "instance result hide">
+    <p>終了</p>
+  </div>
+  <div class = "correct-flag hide"></div>
+  <div class = "batu-flag hide"></div>
   </div>
 </div>
 <%= javascript_include_tag 'quiz' %>
