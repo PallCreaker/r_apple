@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   def confirm_status
     case current_user.status
     when "temporary" then
-      redirect_to '/users/sign_in'
+      redirect_to '/registration/index'
     when "complete_name" then
       redirect_to '/quiz/index'
     when "complete_quiz" then

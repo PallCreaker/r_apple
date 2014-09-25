@@ -23,7 +23,7 @@ class QuizController < ApplicationController
   def complete
     raw = params
     Score.create(user_id: current_user.id, score: raw[:score])
-    if current_user.complete_name?
+    if current_user.complete_name_and_university?
       current_user.complete_quiz!
     end
     render json: raw

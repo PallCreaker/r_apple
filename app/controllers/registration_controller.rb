@@ -8,7 +8,7 @@ class RegistrationController < ApplicationController
 
   def update
     if current_user.update(user_params)
-      current_user.complete_name!
+      current_user.complete_name_and_university!
         if current_user.save!
           redirect_to :controller => "quiz", :action => "index"
         end
