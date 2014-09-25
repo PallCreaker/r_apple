@@ -153,7 +153,8 @@ body{
         &.odd{background-color: $girl_bg}
         img.user-photo{
             float: left;
-            width: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 100px;
             &:hover{@include opacity(1)}
         }
@@ -161,12 +162,13 @@ body{
             padding: 10px;
             margin-top: 19px;
             float: left;
+            width: 125px;
             img.fukoku{
                 width: 100px;
                 &:hover{@include opacity(.7)}
             }
             p.user-name {
-                font-size: 30px;
+                font-size: 140%;
             }
             p.univ {
                 font-size: 16px;
