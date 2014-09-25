@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user_id = current_user.id
-    @message.competition_id = current_user.competitions.last.id # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
+    @message.competition_id = current_user.competitions.last.id
 
     respond_to do |format|
       if @message.save
