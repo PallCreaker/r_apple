@@ -6,7 +6,6 @@ class MatchinglistController < ApplicationController
     confirm_status unless current_user.complete_quiz?
     my_score = Score.my_score(current_user.id).maximum("score")
 
-    binding.pry
     if current_user.gender == 0
       @users = User.gender_filter(1).score_filter(my_score).university_filter(current_user.university)
     else
