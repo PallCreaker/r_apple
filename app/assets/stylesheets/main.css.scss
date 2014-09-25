@@ -4,7 +4,7 @@ $girl_bg : rgb(254,233,238);
 
 body{
     header{
-        .icon-refresh{color:white}
+        .icon-refresh, .icon-left-nav{color:white}
         &.bar{
             background-color: rgb(174,220,253);
             h1{color:white;}
@@ -78,7 +78,7 @@ body{
                             @include opacity(1);
                         }
                     }
-                    &.choices{p{float: left;margin: 4px 0 0 10px;}}
+                    &.choices{p{float: left;margin: 4px 0 0 10px;font-size: 0.73em}}
                     &:nth-child(even){
                         border-right:none;
                     }
@@ -153,7 +153,8 @@ body{
         &.odd{background-color: $girl_bg}
         img.user-photo{
             float: left;
-            width: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 100px;
             &:hover{@include opacity(1)}
         }
@@ -161,12 +162,13 @@ body{
             padding: 10px;
             margin-top: 19px;
             float: left;
+            width: 125px;
             img.fukoku{
                 width: 100px;
                 &:hover{@include opacity(.7)}
             }
             p.user-name {
-                font-size: 30px;
+                font-size: 140%;
             }
             p.univ {
                 font-size: 16px;
@@ -177,18 +179,20 @@ body{
                 margin-left: 4px;
             }
         }
-        .enemy-photo{
+        .user-image{
             margin-top: 18px;
             float: left;
             width: 130px;
-            border-radius: 100px;
+            height: 130px;
+            border-radius: 130px;
+            &:hover{@include opacity(1)}
         }
         .enemy-info{
             padding: 13px;
             width: 160px;
             float: left;
             .vs-user{
-                font-size: 22px;
+                font-size: 1.3em;
                 .head{
                     font-size: 10px;
                     display: inline-block;
