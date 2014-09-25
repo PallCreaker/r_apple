@@ -23,19 +23,14 @@
 <%# TODO: validationのスタイルは他のところと一緒に %>
 <% if @message.errors.any? %>
   <div id="error_explanation">
-    <ul>
-    <% @message.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
+    <p><%= @message.errors.messages[:content][0] %></p>
   </div>
 <% end %>
 <%= form_for @message do |f| %>
   <div class="field">
-    <%= f.label :content %><br>
     <%= f.text_field :content %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "送っちゃう？", type: :image, src: "/img/send_btn.png"%>
   </div>
 <% end %>
