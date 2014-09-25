@@ -219,22 +219,6 @@ body{
             }
         }
     }
-}
-nav.footer{
-    background-color: #e6e6e6;
-    span{color: rgb(41,170,225);}
-    .icon-home-original:before{
-        content: url('/img/icon_home.png');
-    }
-    .icon-test:before{
-        content: url('/img/icon_test.png');
-    }
-    .icon-status:before{
-        content: url('/img/icon_status.png');
-    }
-    .icon-chat:before{
-        content: url('/img/icon_chat.png');
-    }
     .chat-view{
         padding: 15px;
         .chat-content{
@@ -288,5 +272,21 @@ nav.footer{
                 width: 215px;
             }
         }
+    }
+}
+nav.footer{
+    background-color: #e6e6e6;
+    span{color: rgb(41,170,225);}
+    .icon-home-original:before{
+        content: url('/img/icon_home.png');
+    }
+    .icon-test:before{
+        content: url('/img/icon_test.png');
+    }
+    .icon-status:before{
+        content: url('/img/icon_status.png');
+    }
+    .icon-chat:before{
+        content: url('/img/icon_chat.png');
     }
 }
