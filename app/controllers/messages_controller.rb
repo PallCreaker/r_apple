@@ -47,7 +47,7 @@ class MessagesController < ApplicationController
     end
     def set_message
       @all_messages = Message.where(competition_id: current_user.competitions.last.id)
-      @enemy = User.find(current_user.competitions.last.competition_id) # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
+      @enemy = User.find(current_user.competitions.last.enemy_id) # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
     end
 
     def set_html_class
