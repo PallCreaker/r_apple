@@ -6,7 +6,8 @@ time = 0
 timerID = 0
 quiz = 0
 score = 0
-time_limit = 90
+intro_time = 4
+time_limit = 3
 
 StartTimer = ->
     timerID = setInterval(Timer, 1000)
@@ -19,21 +20,33 @@ StopTimer = ->
 
 
 Timer = ->
-    time = time + 1
-    $('div.progress-bar').css('width',100*time/time_limit+'%');
-    $('span.time-limit').text(time_limit-time);
+    if intro_time >= 0
+        $(".introduction_text").text((intro_time));
+        intro_time = intro_time-1
+    else
+        $('.introduction').addClass("hide");
+        $('.playing').removeClass("hide");
+        time = time + 1
+        $('div.progress-bar').css('width',100*time/time_limit+'%');
+        $('span.time-limit').text(time_limit-time);
+
     if time == time_limit
         StopTimer()
-        $.ajax
-            url: "complete"
-            type: "GET"
-            data:
-                score: score
-            success: (data) ->
-                window.location.pathname = '/matchinglist/index'
-                return
-            error: (data) ->
-                return
+        $('.playing').addClass("hide");
+        $('.result').removeClass("hide");
+        setTimeout(complete, 3000)
+
+complete = ->
+    $.ajax
+        url: "complete"
+        type: "GET"
+        data:
+            score: score
+        success: (data) ->
+            window.location.pathname = '/matchinglist/index'
+            return
+        error: (data) ->
+            return
 
 
 scoring = (q) ->
@@ -56,8 +69,8 @@ shuffleArray = (array) ->
 next_quiz = (q) ->
     # TODO: sleep処理を正しい場所。あと二度押しできるので改善
     sleep 500
-    $('.correct-flag').css("visibility","hidden");
-    $('.batu-flag').css("visibility","hidden");
+    $('.correct-flag').addClass("hide");
+    $('.batu-flag').addClass("hide");
     quiz = q
     choices = [q.ans1, q.ans2, q.ans3, q.ans4]
     shuffleArray(choices)
@@ -81,10 +94,10 @@ ready = ->
         console.log(score)
         if judge(quiz, text) == 1
             score = score + scoring(quiz)
-            $('.correct-flag').css("visibility","visible");
+            $('.correct-flag').removeClass("hide")
         else
             score = score - (10 - scoring(quiz))
-            $('.batu-flag').css("visibility","visible");
+            $('.batu-flag').removeClass("hide")
         $(".score").text("スコア" + score);
         $.ajax
             url: "selection"
@@ -108,6 +121,7 @@ $(document).ready(ready)
 $(document).on('page:load', ready)
 
 StartTimer()
+
 $.ajax
     url: "selection"
     type: "GET"
