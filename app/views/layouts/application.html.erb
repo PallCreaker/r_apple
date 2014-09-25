@@ -41,7 +41,8 @@
     <%= yield %>
   </div>
   <% if %w[home messages].include?(controller_name) %>
-    <%= render :partial => "/layouts/footer" %>
+    <%=  @to_messages ||= [] %>
+    <%= render :partial => "/layouts/footer" , locals: { win_count: @win_count, messages: @to_messages }%>
   <% end %>
 </body>
 </html>
