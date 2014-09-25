@@ -1,4 +1,7 @@
 @import "setting";
+$man_bg : rgb(195,221,254);
+$girl_bg : rgb(254,233,238);
+
 body{
     header{
         .icon-refresh{color:white}
@@ -146,8 +149,8 @@ body{
     }
     .user-panel{
         padding: 15px;
-        &.even{background-color: rgb(195,221,254)}
-        &.odd{background-color: rgb(254,233,238)}
+        &.even{background-color: $man_bg}
+        &.odd{background-color: $girl_bg}
         img.user-photo{
             float: left;
             width: 160px;
@@ -233,8 +236,68 @@ body{
             }
         }
     }
+    .chat-view{
+        padding: 15px;
+        .chat-content{
+            width: 260px;
+            padding: 12px;
+            @include radius(10px);
+            &.man{background-color: $man_bg}
+            &.girl{background-color: $girl_bg}
+        }
+        .sankaku{
+            width: 0;
+            height: 0;
+        }
+        &.login-user{
+            padding: 15px 0 15px 15px;
+            .chat-content{float: right}
+            .sankaku{
+                float: right;
+                margin-top: 20px;
+                border-top: 6px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 6px solid transparent;
+                &.man{border-left: 10px solid $man_bg;}
+                &.girl{border-left: 10px solid $girl_bg;}
+            }
+        }
+        &.pre-partner{
+            .enemy-info{
+                float: left;
+                span{
+                    font-size: 10px;
+                    text-align: center;
+                    display: block;
+                }
+                img{
+                    width: 50px;
+                    @include radius(50px);
+                }
+            }
+            .sankaku{
+                float: left;
+                margin-top: 20px;
+                border-top: 6px solid transparent;
+                &.man{border-right: 10px solid $man_bg;}
+                &.girl{border-right: 10px solid $girl_bg;}
+                border-bottom: 6px solid transparent;
+                border-left: 10px solid transparent;
+            }
+            .chat-content{
+                float: left;
+                width: 215px;
+            }
+        }
+    }
 }
 nav.footer{
+    .tab-item{
+        &:hover{
+            @include opacity(.6);
+            background:none;
+        }
+    }
     background-color: #e6e6e6;
     span{color: rgb(41,170,225);}
     .icon-home-original:before{

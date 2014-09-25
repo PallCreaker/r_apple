@@ -1,5 +1,6 @@
 class Competition < ActiveRecord::Base
-  has_many :result
+  has_many :results
+  has_many :messages
   belongs_to :competition_user, class_name: User, foreign_key: :competition_id
   belongs_to :user
 

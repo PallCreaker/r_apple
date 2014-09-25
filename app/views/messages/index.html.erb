@@ -1,0 +1,41 @@
+<% @all_messages.each do |message| %>
+  <% if current_user.id == message.user_id %>
+  <div class="chat-view login-user cf">
+    <div class="sankaku <%= current_user.gender == 0 ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= current_user.gender == 0 ? 'man' : 'girl' %>">
+      <%= message.content %>
+    </div>
+  </div>
+  <% else %>
+  <div class="chat-view pre-partner cf">
+    <div class="enemy-info">
+      <%= image_tag @enemy.image %> <br>
+      <span><%= @enemy.user_name %></span>
+    </div>
+    <div class="sankaku <%= @enemy.gender == 0 ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= @enemy.gender == 0 ? 'man' : 'girl' %>">
+      <%= message.content %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+<%# TODO: validationのスタイルは他のところと一緒に %>
+<% if @message.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= form_for @message do |f| %>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
