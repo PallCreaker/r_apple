@@ -23,11 +23,7 @@
 <%# TODO: validationのスタイルは他のところと一緒に %>
 <% if @message.errors.any? %>
   <div id="error_explanation">
-    <ul>
-    <% @message.errors.full_messages.each do |msg| %>
-      <%= msg %>
-    <% end %>
-    </ul>
+    <p><%= @message.errors.messages[:content][0] %></p>
   </div>
 <% end %>
 <%= form_for @message do |f| %>
