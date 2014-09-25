@@ -5,7 +5,7 @@
       <p class="user-name"><%= user.user_name %></p>
       <p class="univ"><%= set_univ_for_convert user.university %></p>
       <p class="score"><%= Score.where("user_id = ?", user.id).maximum("score") %></p>
-      <%= link_to image_tag('/img/sensenhukoku.png', class: 'fukoku'), :controller => 'matchinglist', :action => 'create', :competition_id => user %>
+      <%= link_to image_tag('/img/sensenhukoku.png', class: 'fukoku'), :controller => 'matchinglist', :action => 'create', :enemy_id => user %>
     </div>
     </div>
 <% end %>

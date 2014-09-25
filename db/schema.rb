@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 20140924063337) do
 
   create_table "competitions", force: true do |t|
     t.integer  "user_id"
-    t.integer  "competition_id"
-    t.boolean  "is_fin",         default: false
+    t.integer  "enemy_id"
+    t.boolean  "is_fin",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

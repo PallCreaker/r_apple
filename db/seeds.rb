@@ -13,7 +13,7 @@ User.create(user_name:"しげ",university:"keio",gender:1,password:"11111111",em
 User.create(user_name:"さとみ",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
 User.create(user_name:"のぞみ",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
 
-Competition.create(user_id: 1, competition_id: 1)
+Competition.create(user_id: 8, enemy_id: 1)
 
 Score.create(user_id: 1,score: 290)
 Score.create(user_id: 1,score: 90)
