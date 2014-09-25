@@ -275,6 +275,12 @@ body{
     }
 }
 nav.footer{
+    .tab-item{
+        &:hover{
+            @include opacity(.6);
+            background:none;
+        }
+    }
     background-color: #e6e6e6;
     span{color: rgb(41,170,225);}
     .icon-home-original:before{
