@@ -8,7 +8,8 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    @message.user_id = current_user.id
+    @message.from_id = current_user.id
+    @message.to_id = current_user.competitions.last.enemy_id
     @message.competition_id = current_user.competitions.last.id
 
     respond_to do |format|

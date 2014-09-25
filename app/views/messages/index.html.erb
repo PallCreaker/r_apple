@@ -1,5 +1,5 @@
 <% @all_messages.each do |message| %>
-  <% if current_user.id == message.user_id %>
+  <% if current_user.id == message.from_id %>
   <div class="chat-view login-user cf">
     <div class="sankaku <%= current_user.gender == 0 ? 'man' : 'girl' %>"></div>
     <div class="chat-content <%= current_user.gender == 0 ? 'man' : 'girl' %>">
