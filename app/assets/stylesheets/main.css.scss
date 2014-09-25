@@ -45,6 +45,9 @@ body{
         }
     }
     .quiz{
+        .hide {
+            visibility: hidden;
+        }
         .probrem-panels {
             padding: 20px;
             margin-left: 30px;
@@ -113,7 +116,6 @@ body{
             background-image: url('/img/maru.png');
             background-position: center;
             background-repeat: no-repeat;
-            visibility: hidden;
             background-size: contain;
         }
         .batu-flag {
@@ -126,8 +128,23 @@ body{
             background-image: url('/img/batu.png');
             background-position: center;
             background-repeat: no-repeat;
-            visibility: hidden;
             background-size: contain;
+        }
+        .instance {
+            position: absolute;
+            background-color: #aedbfd;
+            width: 100%;
+            top: 0;
+            padding: 0px;
+            text-align: center;
+            padding: 20px;
+            height: 600px;
+            p {
+                margin-top: 80px;
+                color: #ffffff;
+                font-size: 40px;
+                line-height: 40px;
+            }
         }
     }
     .user-panel{
