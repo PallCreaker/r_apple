@@ -20,6 +20,16 @@
   <% end %>
 <% end %>
 
+
+<% if @message.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @message.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_for @message do |f| %>
   <div class="field">
     <%= f.label :content %><br>

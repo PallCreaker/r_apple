@@ -1,10 +1,8 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
-  before_action :message_confirm_status, :set_html_class
+  before_action :message_confirm_status, :set_html_class, :set_message
 
   def index
-    @all_messages = Message.where(competition_id: current_user.competitions.last.id)
-    @enemy = User.find(current_user.competitions.last.competition_id) # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
     @message = Message.new
   end
 
@@ -46,6 +44,10 @@ class MessagesController < ApplicationController
       confirm_status unless current_user.status == 'complete_enemy'
       # TODO: win_countを計算する
       @win_count = 3
+    end
+    def set_message
+      @all_messages = Message.where(competition_id: current_user.competitions.last.id)
+      @enemy = User.find(current_user.competitions.last.competition_id) # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
     end
 
     def set_html_class
