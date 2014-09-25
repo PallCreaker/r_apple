@@ -7,8 +7,8 @@
   browser.msie = /msie/.test(userAgent);
 
   var defaults = {
-    max: 10,
-    partial: 2
+    max: 20,
+    partial: 20
     // ,hintText: 'Click to reveal completely'
   }
 
@@ -19,6 +19,7 @@
     var maxBlur = opts.max
     var partialBlur = opts.partial
     var hintText = opts.hintText
+    var animationTimer = null
     // if (!alertShown && browser.msie) {
     //   alert("WARNING, this site contains spoilers!")
     //   alertShown = true
@@ -27,7 +28,7 @@
       var $spoiler = $(this)
       $spoiler.data('spoiler-state', 'shrouded')
 
-      // var animationTimer = null
+      var animationTimer = null
       var currentBlur = maxBlur
 
       // var cancelTimer = function() {
@@ -56,13 +57,17 @@
         }
       }
 
-      // var performBlur = function(targetBlur, direction) {
-      //   cancelTimer()
-      //   if (currentBlur != targetBlur) {
-      //     applyBlur(currentBlur + direction)
-      //     animationTimer = setTimeout(function() { performBlur(targetBlur, direction) }, 10)
-      //   }
-      // }
+      var performBlur = function(targetBlur, direction) {
+        if (animationTimer) {
+          clearTimeout(animationTimer)
+          animationTimer = null
+        }
+
+        if (currentBlur > targetBlur) {
+          applyBlur(currentBlur + direction)
+          animationTimer = setTimeout(function() { performBlur(targetBlur, direction) }, 100)
+        }
+      }
 
       // Does the user have IE 9 or less?
       var ieLessThanTen = function() {
@@ -72,7 +77,8 @@
         return !document.createElement('canvas').getContext
       }
 
-      applyBlur(currentBlur)
+      applyBlur(currentBlur);
+      performBlur(partialBlur, -1)
 
       // $spoiler.on('mouseover', function(e) {
       //   $spoiler.css('cursor', 'pointer')
