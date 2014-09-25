@@ -38,9 +38,6 @@ class HomeController < ApplicationController
         end
       }
 
-
-      binding.pry
-
       @now_score = Score.select_time_score(current_user.id, from, DateTime.now)
       @new_score = Score.my_score(current_user.id).last.score
       @enemy_user = Competition.get_enemy(current_user.id)
