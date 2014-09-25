@@ -3,6 +3,7 @@ class QuizController < ApplicationController
   before_action :set_html_class
 
   def index
+    #confirm_status
     @title = '単語テスト中'
   end
 
@@ -23,8 +24,8 @@ class QuizController < ApplicationController
     #binding.pry
     raw = params
     Score.create(user_id: current_user.id, score: raw[:score])
-    if current_user.status == 1
-      current_user.status = 2
+    if current_user.status == "complete_name"
+      current_user.status = "complete_quiz"
       current_user.save
     end
     # あとで結果画面の遷移に切り替える

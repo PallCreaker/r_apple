@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby, :group => :development
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -42,7 +42,7 @@ gem 'koala'
 gem 'bower-rails', '~> 0.8.3'
 
 # environment variables
-gem 'dotenv', '~> 0.11.1'
+gem 'dotenv-rails', '~> 0.11.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

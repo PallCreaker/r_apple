@@ -1,1 +1,20 @@
-﻿
+﻿<nav class="bar bar-tab footer">
+  <a class="tab-item active" href="<%= root_path %>">
+    <span class="icon icon-home-original"></span>
+    <span class="tab-label">Home</span>
+  </a>
+  <a class="tab-item" href="<%= quiz_index_path %>">
+    <span class="icon icon-test"></span>
+    <span class="tab-label">Test</span>
+  </a>
+  <a class="tab-item" href="<%= home_show_path %>">
+    <span class="icon icon-status"></span>
+    <span class="tab-label">Status</span>
+  </a>
+  <% if @win_count > 2 %>
+    <a class="tab-item" href="<%#= message_index_path %>">
+      <span class="icon icon-chat"></span>
+      <span class="tab-label">Chat</span>
+    </a>
+  <% end %>
+</nav>

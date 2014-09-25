@@ -1,22 +1,51 @@
-<h1>home画面</h1>
+<div class="user-panel cf">
+  <%= image_tag @enemy_user.image+'?type=large', class: 'enemy-photo' %>
+  <div class="enemy-info">
+    <p class="vs-user">
+      <span class="head">あなたが宣戦布告した相手</span><br>
+      <span class="vs">VS</span><%= @enemy_user.user_name %>
+    </p>
+    <p class="vs-detail">
+      対戦開始<%= @my_competition.count %>日目<br>
+      <%= @win_count %>勝 <%= @loose_count %>敗<br>
+      <span class="removal-chat">チャット解禁まであと<%= @mosaic_count %>勝</span>
+    </p>
+  </div>
+</div>
+<div class="my-enemy-graph">
+  <canvas id="myChart" width="320" height="200"></canvas>
+</div>
+<script>
+  // #TODO あとでvalueに勝利数を突っ込む
+  $('.enemy-photo').spoilerAlert({max: <%= @mosaic_count %>});
 
-<ul>
-	<li>
-  my name : <%= current_user.user_name %>
-  </li>
-  <li>
-  enemy name : <%= @competition_username %>
-	</li>
-  <li>
-  my score : <%= @my_score %>
-  </li>
-  <li>
-  enemy score : <%= @enemy_score %>
-  </li>
-  <li>
-  勝ち : <%= @win_count %>
-  </li>
-  <li>
-  負け : <%= @loose_count %>
-  </li>
-</ul>
+
+  // Get the context of the canvas element we want to select
+  var ctx = document.getElementById("myChart").getContext("2d");
+  var data = {
+      labels: ["1日目", "2日目", "3日目", "4日目", "5日目", "6日目", "7日目"],
+      datasets: [
+          {
+              label: "My First dataset",
+              fillColor: "rgba(43,154,243,0.2)",
+              strokeColor: "rgba(43,154,243,1)",
+              pointColor: "rgba(43,154,243,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(22,220,220,1)",
+              data: <%= @my_score.to_json %>
+          },
+          {
+              label: "My Second dataset",
+              fillColor: "rgba(234,99,155,0.2)",
+              strokeColor: "rgba(234,99,155,1)",
+              pointColor: "rgba(234,99,155,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(151,187,205,1)",
+              data: <%= @enemy_score.to_json %>
+          }
+      ]
+  };
+  var myLineChart = new Chart(ctx).Line(data);
+</script>
