@@ -23,11 +23,11 @@ ActiveRecord::Schema.define(version: 20140925172520) do
 
   create_table "messages", force: true do |t|
     t.integer  "from_id"
+    t.integer  "to_id"
     t.integer  "competition_id"
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "to_id"
   end
 
   create_table "quizzes", force: true do |t|
