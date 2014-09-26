@@ -16,11 +16,7 @@ class MessagesController < ApplicationController
     @message.to_id = Competition.find(params[:id]).enemy_id
     @message.competition_id = params[:id]
     respond_to do |format|
-      if @message.save
-        format.html { redirect_to :controller => "messages", :action => "proclamation" }
-      else
-        format.html { render :proclamation }
-      end
+      format.html { redirect_to :controller => "messages", :action => "proclamation" } if @message.save 
     end
   end
 
