@@ -7,4 +7,8 @@ class Competition < ActiveRecord::Base
   def self.get_enemy(user_id)
     self.where(user_id: user_id).last.competition_user
   end
+
+  def self.get_enemy_for_competion_id(competition_id)
+    @competition = self.where(id: competition_id)
+  end
 end
