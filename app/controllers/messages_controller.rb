@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
 
   #宣戦布告された人のチャット画面
   def proclamation
-    @all_messages = Message.where("competition_id = ? ", params[:id])
+    @all_messages = Message.where(competition_id: params[:id])
   end
 
   def reply
