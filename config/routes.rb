@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :messages
+  get 'messages/:id', to: 'messages#proclamation' #id = competition.id not message.id
+  get 'messages', to: 'messages#index'
+  post 'messages/:id', to: 'messages#reply' #id = competition.id not message.id
+  resource :messages, only: [:new, :create]
 
   patch "registration/update"
   get "registration/index"

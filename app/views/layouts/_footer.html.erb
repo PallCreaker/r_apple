@@ -11,8 +11,13 @@
     <span class="icon icon-status"></span>
     <span class="tab-label">Status</span>
   </a>
-  <% if @win_count > 2 %>
-    <a class="tab-item" href="<%= messages_path %>" data-ignore="push">
+  <% if win_count > 2 || messages != nil %>
+    <%# 便宜上lastだが、今後、宣戦布告された人一覧チャットを作成予定 %>
+    <% if messages.blank? %>
+      <a class="tab-item" href="<%= messages_path %>" data-ignore="push">
+    <% else %>
+      <a class="tab-item" href="<%= messages_path %>/<%= messages.last.competition_id %>" data-ignore="push">
+    <% end %>
       <span class="icon icon-chat"></span>
       <span class="tab-label">Chat</span>
     </a>

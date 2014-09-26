@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   before_action :set_html_class
   before_action :set_score
   before_action :set_win_loose_count
+  before_action :confirm_to_message
 
 
   def index
@@ -65,5 +66,8 @@ class HomeController < ApplicationController
         @mosaic_count = 0
       end
 
+    end
+    def confirm_to_message
+      @to_messages = Message.get_my_message(current_user.id) unless Message.get_my_message(current_user.id).nil?
     end
 end
