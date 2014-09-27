@@ -33,8 +33,8 @@ class HomeController < ApplicationController
           @my_score.push(Score.select_time_score(current_user.id, from, from+day))
           @enemy_score.push(Score.select_time_score(Competition.get_enemy(current_user.id), from, from+day))
         else
-          @my_score.push(0)
-          @enemy_score.push(0)
+          @my_score.push(nil)
+          @enemy_score.push(nil)
         end
       }
 
