@@ -7,7 +7,7 @@ timerID = 0
 quiz = 0
 score = 0
 intro_time = 4
-time_limit = 90
+time_limit = 25
 quiz_count = 0
 
 StartTimer = ->
