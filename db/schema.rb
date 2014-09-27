@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924063337) do
+ActiveRecord::Schema.define(version: 20140925172520) do
 
   create_table "competitions", force: true do |t|
     t.integer  "user_id"
@@ -22,7 +22,8 @@ ActiveRecord::Schema.define(version: 20140924063337) do
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "from_id"
+    t.integer  "to_id"
     t.integer  "competition_id"
     t.string   "content"
     t.datetime "created_at"

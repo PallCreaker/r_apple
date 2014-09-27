@@ -3,12 +3,27 @@ class MessagesController < ApplicationController
   before_action :message_confirm_status, :set_html_class, :set_message
 
   def index
-    @message = Message.new
+  end
+
+  #宣戦布告された人のチャット画面
+  def proclamation
+    @all_messages = Message.where(competition_id: params[:id])
+  end
+
+  def reply
+    @message = Message.new(message_params)
+    @message.from_id = current_user.id
+    @message.to_id = Competition.find(params[:id]).enemy_id
+    @message.competition_id = params[:id]
+    respond_to do |format|
+      format.html { redirect_to :controller => "messages", :action => "proclamation" } if @message.save 
+    end
   end
 
   def create
     @message = Message.new(message_params)
-    @message.user_id = current_user.id
+    @message.from_id = current_user.id
+    @message.to_id = current_user.competitions.last.enemy_id
     @message.competition_id = current_user.competitions.last.id
 
     respond_to do |format|
@@ -45,7 +60,9 @@ class MessagesController < ApplicationController
       # TODO: win_countを計算する
       @win_count = 3
     end
+
     def set_message
+      @message = Message.new
       @all_messages = Message.where(competition_id: current_user.competitions.last.id)
       @enemy = User.find(current_user.competitions.last.enemy_id) # 同じ相手を宣戦布告する場合があるため、最新の宣戦布告相手を取得
     end

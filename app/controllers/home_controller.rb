@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, :avoidance_redirect, :set_html_class, :set_score, :set_win_loose_count
+  before_action :authenticate_user!, :avoidance_redirect, :set_html_class, :set_score, :set_win_loose_count, :confirm_to_message
 
   def index
     
@@ -29,8 +29,7 @@ class HomeController < ApplicationController
       @enemy_score = []
 
       1.upto(7){|day|
-        # TODO 仕様書作成用に一時的に変更
-        if day <= week_day+1
+        if day <= week_day
           @my_score.push(Score.select_time_score(current_user.id, from, from+day))
           @enemy_score.push(Score.select_time_score(Competition.get_enemy(current_user.id), from, from+day))
         else
@@ -61,5 +60,8 @@ class HomeController < ApplicationController
         @mosaic_count = 0
       end
 
+    end
+    def confirm_to_message
+      @to_messages = Message.get_my_message(current_user.id) unless Message.get_my_message(current_user.id).nil?
     end
 end
