@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925172520) do
+ActiveRecord::Schema.define(version: 20140922175305) do
 
   create_table "competitions", force: true do |t|
     t.integer  "user_id"
@@ -21,14 +21,19 @@ ActiveRecord::Schema.define(version: 20140925172520) do
     t.datetime "updated_at"
   end
 
+  add_index "competitions", ["enemy_id"], name: "index_competitions_on_enemy_id", using: :btree
+
   create_table "messages", force: true do |t|
     t.integer  "from_id"
-    t.integer  "to_id"
     t.integer  "competition_id"
+    t.integer  "to_id"
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "messages", ["from_id"], name: "index_messages_on_from_id", using: :btree
+  add_index "messages", ["to_id"], name: "index_messages_on_to_id", using: :btree
 
   create_table "quizzes", force: true do |t|
     t.string   "problem"
@@ -51,6 +56,9 @@ ActiveRecord::Schema.define(version: 20140925172520) do
     t.datetime "updated_at"
   end
 
+  add_index "results", ["competition_score_id"], name: "index_results_on_competition_score_id", using: :btree
+  add_index "results", ["my_score_id"], name: "index_results_on_my_score_id", using: :btree
+
   create_table "scores", force: true do |t|
     t.integer  "user_id"
     t.integer  "competition_id"
@@ -58,6 +66,9 @@ ActiveRecord::Schema.define(version: 20140925172520) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "scores", ["competition_id"], name: "index_scores_on_competition_id", using: :btree
+  add_index "scores", ["user_id"], name: "index_scores_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "user_name"
