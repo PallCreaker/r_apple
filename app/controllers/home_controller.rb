@@ -29,7 +29,8 @@ class HomeController < ApplicationController
       @enemy_score = []
 
       1.upto(7){|day|
-        if day <= week_day
+        # TODO 仕様書作成用に一時的に変更
+        if day <= week_day+1
           @my_score.push(Score.select_time_score(current_user.id, from, from+day))
           @enemy_score.push(Score.select_time_score(Competition.get_enemy(current_user.id), from, from+day))
         else

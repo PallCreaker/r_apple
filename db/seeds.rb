@@ -13,10 +13,13 @@ User.create(user_name:"しげ",university:"keio",gender:1,password:"11111111",em
 User.create(user_name:"さとみ",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
 User.create(user_name:"のぞみ",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
 
-#Competition.create(user_id: 8, enemy_id: 1)
 
-Score.create(user_id: 1,score: 290)
-Score.create(user_id: 1,score: 90)
+Score.create(user_id: 1,score: 89, created_at:"2014-09-22 17:54:03")
+Score.create(user_id: 1,score: 70, created_at:"2014-09-23 17:54:03")
+Score.create(user_id: 1,score: 110, created_at:"2014-09-24 17:54:03")
+Score.create(user_id: 1,score: 120, created_at:"2014-09-25 17:54:03")
+Score.create(user_id: 1,score: 70, created_at:"2014-09-26 17:54:03")
+Score.create(user_id: 1,score: 70, created_at:"2014-09-27 17:54:03")
 Score.create(user_id: 2,score: 350)
 Score.create(user_id: 2,score: 300)
 Score.create(user_id: 3,score: 50)
@@ -25,11 +28,19 @@ Score.create(user_id: 4,score: 200)
 Score.create(user_id: 5,score: 300)
 Score.create(user_id: 6,score: 300)
 Score.create(user_id: 7,score: 500)
+Score.create(user_id: 8,score: 50, created_at:"2014-09-22 17:54:03")
+Score.create(user_id: 8,score: 95, created_at:"2014-09-23 17:54:03")
+Score.create(user_id: 8,score: 65, created_at:"2014-09-24 17:54:03")
+Score.create(user_id: 8,score: 10, created_at:"2014-09-25 17:54:03")
+Score.create(user_id: 8,score: 125, created_at:"2014-09-26 17:54:03")
+Score.create(user_id: 8,score: 125, created_at:"2014-09-27 17:54:03")
 
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
-
-
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
 
 Quiz.create(problem:"gross", ans1:"総計の", ans2:"世界の", ans3:"草", ans4:"接続")
 Quiz.create(problem:"conscious", ans1:"意識のある", ans2:"感謝", ans3:"継続", ans4:"注意")

@@ -7,7 +7,7 @@ timerID = 0
 quiz = 0
 score = 0
 intro_time = 4
-time_limit = 3
+time_limit = 30
 
 StartTimer = ->
     timerID = setInterval(Timer, 1000)
