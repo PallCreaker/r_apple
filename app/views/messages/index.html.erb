@@ -1,8 +1,8 @@
 <% @all_messages.each do |message| %>
   <% if current_user.id == message.from_id %>
   <div class="chat-view login-user cf">
-    <div class="sankaku <%= current_user.gender == 0 ? 'man' : 'girl' %>"></div>
-    <div class="chat-content <%= current_user.gender == 0 ? 'man' : 'girl' %>">
+    <div class="sankaku <%= current_user.gender == 'male' ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= current_user.gender == 'male' ? 'man' : 'girl' %>">
       <%= message.content %>
     </div>
   </div>
@@ -12,8 +12,8 @@
       <%= image_tag @enemy.image %> <br>
       <span><%= @enemy.user_name %></span>
     </div>
-    <div class="sankaku <%= @enemy.gender == 0 ? 'man' : 'girl' %>"></div>
-    <div class="chat-content <%= @enemy.gender == 0 ? 'man' : 'girl' %>">
+    <div class="sankaku <%= @enemy.gender == 'male' ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= @enemy.gender == 'male' ? 'man' : 'girl' %>">
       <%= message.content %>
     </div>
   </div>

@@ -11,7 +11,7 @@
     <span class="icon icon-status"></span>
     <span class="tab-label">Status</span>
   </a>
-  <% if win_count > 2 || messages != nil %>
+  <% if win_count > 2 || messages != [] %>
     <%# 便宜上lastだが、今後、宣戦布告された人一覧チャットを作成予定 %>
     <% if messages.blank? %>
       <a class="tab-item" href="<%= messages_path %>" data-ignore="push">
