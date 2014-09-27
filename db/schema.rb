@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140924063337) do
+ActiveRecord::Schema.define(version: 20140925172520) do
 
   create_table "competitions", force: true do |t|
     t.integer  "user_id"
-    t.integer  "competition_id"
-    t.boolean  "is_fin",         default: false
+    t.integer  "enemy_id"
+    t.boolean  "is_fin",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "messages", force: true do |t|
-    t.integer  "user_id"
+    t.integer  "from_id"
+    t.integer  "to_id"
     t.integer  "competition_id"
     t.string   "content"
     t.datetime "created_at"
@@ -60,15 +61,15 @@ ActiveRecord::Schema.define(version: 20140924063337) do
 
   create_table "users", force: true do |t|
     t.string   "user_name"
-    t.integer  "status",                 default: 0
+    t.string   "status",                 default: "tmp"
     t.string   "university"
     t.string   "image"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -76,8 +77,8 @@ ActiveRecord::Schema.define(version: 20140924063337) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "gender"
-    t.string   "fb_id",                  default: "", null: false
-    t.string   "provider",               default: "", null: false
+    t.string   "fb_id",                  default: "",    null: false
+    t.string   "provider",               default: "",    null: false
     t.string   "fb_name"
   end
 

@@ -4,10 +4,11 @@ class HomeController < ApplicationController
   before_action :set_html_class
   before_action :set_score
   before_action :set_win_loose_count
+  before_action :confirm_to_message
 
 
   def index
-    congirm_status if current_user.status == "complete_quiz"
+    
   end
 
   def show
@@ -18,9 +19,7 @@ class HomeController < ApplicationController
 
   private
     def avoidance_redirect
-      if current_user.status != "complete_enemy"
-        confirm_status
-      end
+      confirm_status unless current_user.complete_enemy?
     end
 
     def set_html_class
@@ -46,6 +45,7 @@ class HomeController < ApplicationController
       }
 
       @now_score = Score.where(user_id:current_user.id, created_at:from...DateTime.now).maximum('score')
+      @new_score = Score.where(user_id:current_user.id).last.score
       @enemy_user = Competition.get_enemy(current_user.id)
       @my_competition = Result.get_result(@enemy_user.id)
     end
@@ -66,5 +66,8 @@ class HomeController < ApplicationController
         @mosaic_count = 0
       end
 
+    end
+    def confirm_to_message
+      @to_messages = Message.get_my_message(current_user.id) unless Message.get_my_message(current_user.id).nil?
     end
 end

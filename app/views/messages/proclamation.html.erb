@@ -1,0 +1,30 @@
+﻿<% @all_messages.each do |message| %>
+  <% if current_user.id == message.from_id %>
+  <div class="chat-view login-user cf">
+    <div class="sankaku <%= current_user.gender == 0 ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= current_user.gender == 0 ? 'man' : 'girl' %>">
+      <%= message.content %>
+    </div>
+  </div>
+  <% else %>
+  <div class="chat-view pre-partner cf">
+    <div class="enemy-info">
+      <%= image_tag User.find(message.from_id).image %> <br>
+      <span><%= User.find(message.from_id).user_name %></span>
+    </div>
+    <div class="sankaku <%= User.find(message.from_id).gender == 0 ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= User.find(message.from_id).gender == 0 ? 'man' : 'girl' %>">
+      <%= message.content %>
+    </div>
+  </div>
+  <% end %>
+<% end %>
+
+<%= form_for @message, :url => {:action => 'reply'} do |f| %>
+  <div class="field">
+    <%= f.text_field :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit "送っちゃう", type: :image, src: "/img/send_btn.png"%>
+  </div>
+<% end %>

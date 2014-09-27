@@ -26,13 +26,23 @@
    }(document, 'script', 'facebook-jssdk'));
 </script>
   <%= render :partial => "/layouts/header" %>
+
+<%# cssフレームワークのratchetのpush.jsがajaxを使っていて、chartJSが読み込まれないので、読み込み時にリロード %>
+<script>
+    window.addEventListener('push', function(){
+        var scriptsList = document.querySelectorAll('script.js-custom');
+        for(var i = 0; i < scriptsList.length; ++i) {
+            eval(scriptsList[i].innerHTML);
+        }
+    });
+</script>
+
 	<div class="content <%= @style_content unless @style_content.nil? %>">
     <%= yield %>
-    <%#= link_to "logout", destroy_user_session_path, method: :delete %>
   </div>
   <% if %w[home messages].include?(controller_name) %>
-    <%= render :partial => "/layouts/footer" %>
+    <%  @to_messages ||= [] %>
+    <%= render :partial => "/layouts/footer" , locals: { win_count: @win_count, messages: @to_messages }%>
   <% end %>
-  <%= controller_name %>
 </body>
 </html>

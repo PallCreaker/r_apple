@@ -3,7 +3,7 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
 
       t.string :user_name
-      t.integer :status, default: 0				
+      t.string :status, default: "tmp"
       t.string :university
       t.string :image
       
