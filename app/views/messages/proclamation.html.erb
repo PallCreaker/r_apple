@@ -1,8 +1,8 @@
 ﻿<% @all_messages.each do |message| %>
   <% if current_user.id == message.from_id %>
   <div class="chat-view login-user cf">
-    <div class="sankaku <%= current_user.gender == 0 ? 'man' : 'girl' %>"></div>
-    <div class="chat-content <%= current_user.gender == 0 ? 'man' : 'girl' %>">
+    <div class="sankaku <%= current_user.gender == 'male' ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= current_user.gender == 'male' ? 'man' : 'girl' %>">
       <%= message.content %>
     </div>
   </div>
@@ -12,8 +12,8 @@
       <%= image_tag User.find(message.from_id).image %> <br>
       <span><%= User.find(message.from_id).user_name %></span>
     </div>
-    <div class="sankaku <%= User.find(message.from_id).gender == 0 ? 'man' : 'girl' %>"></div>
-    <div class="chat-content <%= User.find(message.from_id).gender == 0 ? 'man' : 'girl' %>">
+    <div class="sankaku <%= User.find(message.from_id).gender == 'male' ? 'man' : 'girl' %>"></div>
+    <div class="chat-content <%= User.find(message.from_id).gender == 'male' ? 'man' : 'girl' %>">
       <%= message.content %>
     </div>
   </div>
