@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 20140925172520) do
   create_table "users", force: true do |t|
     t.string   "user_name"
     t.string   "status",                 default: "tmp"
+    t.string   "gender"
     t.string   "university"
     t.string   "image"
     t.string   "email",                  default: "",    null: false
@@ -76,7 +77,6 @@ ActiveRecord::Schema.define(version: 20140925172520) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "gender"
     t.string   "fb_id",                  default: "",    null: false
     t.string   "provider",               default: "",    null: false
     t.string   "fb_name"

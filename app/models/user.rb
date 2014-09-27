@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   enum status: {temporary: "tmp", complete_name_and_university: "cmpl_name_uni", complete_quiz: "cmpl_quiz", complete_enemy: "cmpl_en"}
+  #enum gender: {m: "mele", f: "female"}
 
   def self.find_for_facebook_oauth(auth)
     user = User.find_by(:provider => auth.provider, :fb_id => auth.uid)

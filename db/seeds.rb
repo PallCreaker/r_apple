@@ -5,13 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-User.create(user_name:"はらぴー",university:"doshisha",gender:1,password:"11111111",email:"hoge@example.com",fb_id:"aaa",provider:"facebook", image:"http://graph.facebook.com/100002909887568/picture")
-User.create(user_name:"きゃりー",university:"doshisha",gender:1,password:"11111111",email:"hogehoge@example.com",fb_id:"bbb",provider:"facebook", image:"http://graph.facebook.com/123755481073117/picture")
-User.create(user_name:"えみ",university:"doshisha",gender:1,password:"11111111",email:"hogehogehoge@example.com",fb_id:"ggg",provider:"facebook", image:"http://graph.facebook.com/185909324845572/picture")
-User.create(user_name:"ガッキー",university:"doshisha",gender:1,password:"11111111",email:"sasaki@example.com",fb_id:"ccc",provider:"facebook", image:"http://graph.facebook.com/536890859708124/picture")
-User.create(user_name:"しげ",university:"keio",gender:1,password:"11111111",email:"kato@example.com",fb_id:"ddd",provider:"facebook", image:"http://graph.facebook.com/100002231111235/picture")
-User.create(user_name:"さとみ",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
-User.create(user_name:"のぞみ",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
+User.create(user_name:"はらぴー",university:"doshisha",gender:"female",password:"11111111",email:"hoge@example.com",fb_id:"aaa",provider:"facebook", image:"http://graph.facebook.com/100002909887568/picture")
+User.create(user_name:"きゃりー",university:"doshisha",gender:"female",password:"11111111",email:"hogehoge@example.com",fb_id:"bbb",provider:"facebook", image:"http://graph.facebook.com/123755481073117/picture")
+User.create(user_name:"えみ",university:"doshisha",gender:"female",password:"11111111",email:"hogehogehoge@example.com",fb_id:"ggg",provider:"facebook", image:"http://graph.facebook.com/185909324845572/picture")
+User.create(user_name:"ガッキー",university:"doshisha",gender:"female",password:"11111111",email:"sasaki@example.com",fb_id:"ccc",provider:"facebook", image:"http://graph.facebook.com/536890859708124/picture")
+User.create(user_name:"しげ",university:"keio",gender:"female",password:"11111111",email:"kato@example.com",fb_id:"ddd",provider:"facebook", image:"http://graph.facebook.com/100002231111235/picture")
+User.create(user_name:"さとみ",university:"waseda",gender:"female",password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
+User.create(user_name:"のぞみ",university:"waseda",gender:"female",password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
 
 
 Score.create(user_id: 1,score: 89, created_at:"2014-09-22 17:54:03")
