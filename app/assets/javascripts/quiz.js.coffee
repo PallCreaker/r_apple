@@ -6,8 +6,9 @@ time = 0
 timerID = 0
 quiz = 0
 score = 0
-intro_time = 4
+intro_time = 5
 time_limit = 90
+
 
 StartTimer = ->
     timerID = setInterval(Timer, 1000)
@@ -20,7 +21,7 @@ StopTimer = ->
 
 
 Timer = ->
-    if intro_time >= 0
+    if intro_time > 0
         $(".introduction_text").text((intro_time));
         intro_time = intro_time-1
     else
@@ -35,6 +36,7 @@ Timer = ->
         $('.playing').addClass("hide");
         $('.result').removeClass("hide");
         setTimeout(complete, 3000)
+
 
 complete = ->
     $.ajax
@@ -79,6 +81,7 @@ next_quiz = (q) ->
         $("#ch" + i).empty() #onにした画像を読み込み時に、消す
         $("#ch" + i).append('<img src="/img/number-' + i + '_off.png"><p class="choice' + i + '">' + choices[i-1] + '</p>')
 
+
 judge = (q, text)->
     if text == q.ans1
         return 1
@@ -86,7 +89,23 @@ judge = (q, text)->
         return 2
 
 
+sleep = (ms) ->
+    start = new Date().getTime()
+    continue while new Date().getTime() - start < ms
+
+
 ready = ->
+    StartTimer()
+    $.ajax
+        url: "selection"
+        type: "GET"
+        dataType: "json"
+        success: (data) ->
+            next_quiz(data)
+            return
+        error: (data) ->
+            return
+
     $(".choices").on "click", ->
         # click 時に、画像をoff -> onにする
         $(this ).find('img').attr('src', $(this).find('img').attr('src').replace('_off', '_on'));
@@ -120,18 +139,3 @@ ready = ->
 $(document).ready(ready)
 $(document).on('page:load', ready)
 
-StartTimer()
-
-$.ajax
-    url: "selection"
-    type: "GET"
-    dataType: "json"
-    success: (data) ->
-        next_quiz(data)
-        return
-    error: (data) ->
-        return
-
-sleep = (ms) ->
-    start = new Date().getTime()
-    continue while new Date().getTime() - start < ms
