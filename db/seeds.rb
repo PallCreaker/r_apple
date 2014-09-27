@@ -16,6 +16,10 @@ User.create(user_name:"しげ",university:"keio",gender:"female",password:"11111
 User.create(user_name:"さとみ",university:"waseda",gender:"female",password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
 User.create(user_name:"のぞみ",university:"waseda",gender:"female",password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
 
+User.create(user_name:"よしだ",university:"doshisha",gender:"male",password:"11111111",email:"yoshida@example.com",fb_id:"yoshida",provider:"facebook", image:"http://graph.facebook.com/100007290272771/picture")
+User.create(user_name:"かず",university:"waseda",gender:"male",password:"11111111",email:"kazu@example.com",fb_id:"kazu",provider:"facebook", image:"http://graph.facebook.com/100003887829834/picture")
+User.create(user_name:"けんと",university:"keio",gender:"male",password:"11111111",email:"kento@example.com",fb_id:"kento",provider:"facebook", image:"http://graph.facebook.com/100003476178627/picture")
+
 Competition.create(user_id: 1, enemy_id: 1)
 
 Score.create(user_id: 1,score: 89, created_at:"2014-09-22 17:54:03")
