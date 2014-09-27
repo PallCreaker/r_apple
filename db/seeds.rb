@@ -5,22 +5,29 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
 case Rails.env
 when "production"
-User.create(user_name:"ゆきな",university:"keio",gender:1,password:"11111111",email:"hoge@example.com",fb_id:"aaa",provider:"facebook", image:"https://s3-ap-northeast-1.amazonaws.com/toeic-match/yukina.jpg")
-User.create(user_name:"はらぴー",university:"doshisha",gender:1,password:"11111111",email:"hoge@example.com",fb_id:"aaa",provider:"facebook", image:"http://graph.facebook.com/100002909887568/picture")
-User.create(user_name:"きゃりー",university:"doshisha",gender:1,password:"11111111",email:"hogehoge@example.com",fb_id:"bbb",provider:"facebook", image:"http://graph.facebook.com/123755481073117/picture")
-User.create(user_name:"えみ",university:"doshisha",gender:1,password:"11111111",email:"hogehogehoge@example.com",fb_id:"ggg",provider:"facebook", image:"http://graph.facebook.com/185909324845572/picture")
-User.create(user_name:"ガッキー",university:"doshisha",gender:1,password:"11111111",email:"sasaki@example.com",fb_id:"ccc",provider:"facebook", image:"http://graph.facebook.com/536890859708124/picture")
-User.create(user_name:"しげ",university:"keio",gender:1,password:"11111111",email:"kato@example.com",fb_id:"ddd",provider:"facebook", image:"http://graph.facebook.com/100002231111235/picture")
-User.create(user_name:"さとみ",university:"waseda",gender:1,password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
-User.create(user_name:"のぞみ",university:"waseda",gender:1,password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
+User.create(user_name:"ゆきな",university:"keio",gender:"female",password:"11111111",email:"hoge@example.com",fb_id:"hoge",provider:"facebook", image:"https://s3-ap-northeast-1.amazonaws.com/toeic-match/yukina.jpg")
+User.create(user_name:"はらぴー",university:"doshisha",gender:"female",password:"11111111",email:"hoge@example.com",fb_id:"aaa",provider:"facebook", image:"http://graph.facebook.com/100002909887568/picture")
+User.create(user_name:"きゃりー",university:"doshisha",gender:"female",password:"11111111",email:"hogehoge@example.com",fb_id:"bbb",provider:"facebook", image:"http://graph.facebook.com/123755481073117/picture")
+User.create(user_name:"えみ",university:"doshisha",gender:"female",password:"11111111",email:"hogehogehoge@example.com",fb_id:"ggg",provider:"facebook", image:"http://graph.facebook.com/185909324845572/picture")
+User.create(user_name:"ガッキー",university:"doshisha",gender:"female",password:"11111111",email:"sasaki@example.com",fb_id:"ccc",provider:"facebook", image:"http://graph.facebook.com/536890859708124/picture")
+User.create(user_name:"しげ",university:"keio",gender:"female",password:"11111111",email:"kato@example.com",fb_id:"ddd",provider:"facebook", image:"http://graph.facebook.com/100002231111235/picture")
+User.create(user_name:"さとみ",university:"waseda",gender:"female",password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
+User.create(user_name:"のぞみ",university:"waseda",gender:"female",password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
+
+User.create(user_name:"よしだ",university:"doshisha",gender:"male",password:"11111111",email:"yoshida@example.com",fb_id:"yoshida",provider:"facebook", image:"http://graph.facebook.com/100007290272771/picture")
+User.create(user_name:"かず",university:"waseda",gender:"male",password:"11111111",email:"kazu@example.com",fb_id:"kazu",provider:"facebook", image:"http://graph.facebook.com/100003887829834/picture")
+User.create(user_name:"けんと",university:"keio",gender:"male",password:"11111111",email:"kento@example.com",fb_id:"kento",provider:"facebook", image:"http://graph.facebook.com/100003476178627/picture")
 
 Competition.create(user_id: 1, enemy_id: 1)
 
-Score.create(user_id: 1,score: 290)
-Score.create(user_id: 1,score: 90)
+Score.create(user_id: 1,score: 89, created_at:"2014-09-22 17:54:03")
+Score.create(user_id: 1,score: 70, created_at:"2014-09-23 17:54:03")
+Score.create(user_id: 1,score: 110, created_at:"2014-09-24 17:54:03")
+Score.create(user_id: 1,score: 120, created_at:"2014-09-25 17:54:03")
+Score.create(user_id: 1,score: 70, created_at:"2014-09-26 17:54:03")
+Score.create(user_id: 1,score: 70, created_at:"2014-09-27 17:54:03")
 Score.create(user_id: 2,score: 350)
 Score.create(user_id: 2,score: 300)
 Score.create(user_id: 3,score: 50)
@@ -29,11 +36,19 @@ Score.create(user_id: 4,score: 200)
 Score.create(user_id: 5,score: 300)
 Score.create(user_id: 6,score: 300)
 Score.create(user_id: 7,score: 500)
+Score.create(user_id: 8,score: 50, created_at:"2014-09-22 17:54:03")
+Score.create(user_id: 8,score: 95, created_at:"2014-09-23 17:54:03")
+Score.create(user_id: 8,score: 65, created_at:"2014-09-24 17:54:03")
+Score.create(user_id: 8,score: 10, created_at:"2014-09-25 17:54:03")
+Score.create(user_id: 8,score: 125, created_at:"2014-09-26 17:54:03")
+Score.create(user_id: 8,score: 125, created_at:"2014-09-27 17:54:03")
 
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:false)
 Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
-
-
+Result.create(competition_id:1, my_score_id: 1, competition_score_id:3, decision:true)
 
 Quiz.create(problem:"gross", ans1:"総計の", ans2:"世界の", ans3:"草", ans4:"接続")
 Quiz.create(problem:"conscious", ans1:"意識のある", ans2:"感謝", ans3:"継続", ans4:"注意")

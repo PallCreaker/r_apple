@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
 
       t.string :user_name
       t.string :status, default: "tmp"
+      t.string :gender
       t.string :university
       t.string :image
       

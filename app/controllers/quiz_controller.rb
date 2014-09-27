@@ -11,9 +11,9 @@ class QuizController < ApplicationController
     if params[:judge]
       quiz = Quiz.find(params[:id])
       if params[:correct] == "1"
-        quiz.update(correct_count: quiz.correct_count+1)
+        quiz.update(correct_count:quiz.correct_count+1)
       elsif params[:correct] == "2"
-        quiz.update(incorrect_count: quiz.incorrect_count+1)
+        quiz.update(incorrect_count:quiz.incorrect_count+1)
       end
       quiz.save
     end
@@ -23,7 +23,7 @@ class QuizController < ApplicationController
   def complete
     raw = params
     Score.create(user_id: current_user.id, score: raw[:score])
-    if current_user.complete_name?
+    if current_user.complete_name_and_university?
       current_user.complete_quiz!
     end
     render json: raw
