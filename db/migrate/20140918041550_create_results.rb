@@ -9,6 +9,7 @@ class CreateResults < ActiveRecord::Migration
       t.timestamps
     end
     add_index :results, :my_score_id
+    add_index :results, :competition_id
     add_index :results, :competition_score_id
   end
 end

@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140922175305) do
   end
 
   add_index "competitions", ["enemy_id"], name: "index_competitions_on_enemy_id", using: :btree
+  add_index "competitions", ["user_id"], name: "index_competitions_on_user_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "from_id"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140922175305) do
     t.datetime "updated_at"
   end
 
+  add_index "results", ["competition_id"], name: "index_results_on_competition_id", using: :btree
   add_index "results", ["competition_score_id"], name: "index_results_on_competition_score_id", using: :btree
   add_index "results", ["my_score_id"], name: "index_results_on_my_score_id", using: :btree
 
