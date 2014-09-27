@@ -8,6 +8,7 @@ quiz = 0
 score = 0
 intro_time = 4
 time_limit = 90
+quiz_count = 0
 
 StartTimer = ->
     timerID = setInterval(Timer, 1000)
@@ -69,15 +70,22 @@ shuffleArray = (array) ->
 next_quiz = (q) ->
     # TODO: sleep処理を正しい場所。あと二度押しできるので改善
     sleep 500
+    $('.choices').css('color', '#777');
     $('.correct-flag').addClass("hide");
     $('.batu-flag').addClass("hide");
     quiz = q
     choices = [q.ans1, q.ans2, q.ans3, q.ans4]
     shuffleArray(choices)
+    quiz_count = quiz_count + 1
+    $(".problem-count").text("Q" + quiz_count);
     $(".problem").text(q.problem)
+
     for i in [1..4]
         $("#ch" + i).empty() #onにした画像を読み込み時に、消す
         $("#ch" + i).append('<img src="/img/number-' + i + '_off.png"><p class="choice' + i + '">' + choices[i-1] + '</p>')
+        if choices[i-1] == quiz.ans1
+            $(".choice" + i ).addClass("correct")
+        
 
 judge = (q, text)->
     if text == q.ans1
@@ -98,7 +106,7 @@ ready = ->
         else
             score = score - (10 - scoring(quiz))
             $('.batu-flag').removeClass("hide")
-        $(".score").text("スコア" + score);
+        $(".correct").css('color', '#f99420')
         $.ajax
             url: "selection"
             type: "GET"
