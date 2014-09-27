@@ -26,19 +26,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  # リストアップの際以下のメソッドを用いてフィルタリング
- # def self.gender_filter(gender)
- #   self.where(gender: gender).uniq
- # end
- # 
- #def self.score_filter(fil_score)
- #   self.joins(:scores).where(self.arel_table[:score].gt fil_score).uniq
- #end
-
- # def self.university_filter(university)
- #   self.where(university: university).uniq
- # end
-
+  # リストアップの際以下のscopeを用いてフィルタリング
   scope :gender, -> gender_fil { where(gender: gender_fil).uniq }
   #scope :score,  -> score_fil { joins(:scores).where{ score_fil < score } }
   scope :score,  -> score_fil { joins(:scores).where(Score.arel_table[:score].gt score_fil) }
