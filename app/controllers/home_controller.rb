@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def show
-    @my_competition_count = Competition.count_competition(current_user.id)
+    @my_competition_count = Competition.get_total_matching_count(current_user.id)
     @my_average = Score.my_score(current_user.id).average("score")
   end
 

@@ -36,7 +36,8 @@ gem 'omniauth-facebook'
 
 gem 'omniauth'
 gem 'whenever', :require => false
-gem 'koala'
+
+gem 'squeel'
 
 # a package manager for the web
 gem 'bower-rails', '~> 0.8.3'

@@ -28,15 +28,16 @@ class User < ActiveRecord::Base
 
   # リストアップの際以下のメソッドを用いてフィルタリング
   def self.gender_filter(gender)
-    self.where("gender = ?", gender).uniq
+    self.where(gender: gender).uniq
   end
   
-  def self.score_filter(score)
-    self.joins(:scores).where("score > ?", score).uniq
+  def self.score_filter(fil_score)
+    binding.pry
+    self.joins(:scores).where{fil_score >= score}.uniq
   end
 
   def self.university_filter(university)
-    self.where("university = ?", university).uniq
+    self.where(university: university).uniq
   end
 
 end

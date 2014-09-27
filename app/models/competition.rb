@@ -8,7 +8,7 @@ class Competition < ActiveRecord::Base
     self.where(user_id: user_id).last.competition_user
   end
 
-  def self.count_competition(user_id)
+  def self.get_total_matching_count(user_id)
     self.where("user_id = ?", user_id).count
   end
 
