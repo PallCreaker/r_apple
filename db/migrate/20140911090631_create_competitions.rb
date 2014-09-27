@@ -7,5 +7,7 @@ class CreateCompetitions < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :competitions, :user_id
+    add_index :competitions, :enemy_id
   end
 end

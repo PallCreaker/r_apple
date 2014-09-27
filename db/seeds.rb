@@ -5,6 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+case Rails.env
+when "production"
+User.create(user_name:"ゆきな",university:"keio",gender:"female",password:"11111111",email:"hoge@example.com",fb_id:"hoge",provider:"facebook", image:"https://s3-ap-northeast-1.amazonaws.com/toeic-match/yukina.jpg")
 User.create(user_name:"はらぴー",university:"doshisha",gender:"female",password:"11111111",email:"hoge@example.com",fb_id:"aaa",provider:"facebook", image:"http://graph.facebook.com/100002909887568/picture")
 User.create(user_name:"きゃりー",university:"doshisha",gender:"female",password:"11111111",email:"hogehoge@example.com",fb_id:"bbb",provider:"facebook", image:"http://graph.facebook.com/123755481073117/picture")
 User.create(user_name:"えみ",university:"doshisha",gender:"female",password:"11111111",email:"hogehogehoge@example.com",fb_id:"ggg",provider:"facebook", image:"http://graph.facebook.com/185909324845572/picture")
@@ -13,6 +16,7 @@ User.create(user_name:"しげ",university:"keio",gender:"female",password:"11111
 User.create(user_name:"さとみ",university:"waseda",gender:"female",password:"11111111",email:"saito@example.com",fb_id:"eee",provider:"facebook", image:"http://graph.facebook.com/100004087280924/picture")
 User.create(user_name:"のぞみ",university:"waseda",gender:"female",password:"11111111",email:"kondo@example.com",fb_id:"fff",provider:"facebook", image:"http://graph.facebook.com/100001514097789/picture")
 
+Competition.create(user_id: 1, enemy_id: 1)
 
 Score.create(user_id: 1,score: 89, created_at:"2014-09-22 17:54:03")
 Score.create(user_id: 1,score: 70, created_at:"2014-09-23 17:54:03")
@@ -79,3 +83,6 @@ Quiz.create(problem:"envelope", ans1:"封筒", ans2:"高貴な", ans3:"成長す
 Quiz.create(problem:"pardon", ans1:"許し、許す", ans2:"聞こえない", ans3:"理解", ans4:"親和性")
 Quiz.create(problem:"dig", ans1:"掘る", ans2:"切り裂く", ans3:"連続", ans4:"永久")
 Quiz.create(problem:"domestic", ans1:"家庭内の、国内の", ans2:"暴力", ans3:"道理", ans4:"確実な")
+when "development"
+
+end

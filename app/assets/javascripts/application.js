@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require ratchet/dist/js/ratchet.min.js
 //= require chartjs/Chart.min.js
 //= stub quiz

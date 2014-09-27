@@ -1,7 +1,7 @@
 <div class="sign-in">
   <div class="fb-btn">
     <% unless user_signed_in? %> 
-      <%= link_to image_tag('/img/fb-btn.png'), user_omniauth_authorize_path(:facebook), class: 'fb-login' %>
+      <%= link_to image_tag('/img/fb-btn.png'), user_omniauth_authorize_path(:facebook), class: 'fb-login', :data =>{:ignore => 'push'} %>
     <% end %>
   </div>
 </div>
