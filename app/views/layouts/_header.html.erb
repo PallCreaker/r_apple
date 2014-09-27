@@ -1,7 +1,9 @@
 <header class="bar bar-nav <%= @style_class unless @style_class.nil? %>">
-   <button class="btn btn-link btn-nav pull-left">
-    <span class="icon icon-left-nav" onclick="history.back()"></span>
-  </button>
+  <% if controller_name == 'quiz' %>
+     <button class="btn btn-link btn-nav pull-left">
+      <span class="icon icon-left-nav" onclick="history.back()"></span>
+    </button>
+  <% end %>
   <h1 class="title"><%= @title %></h1>
   <button class="btn btn-link btn-nav pull-right"><a href="javascript:history.go(0)"><span class="icon icon-refresh"></span></a></button>
 </header>
