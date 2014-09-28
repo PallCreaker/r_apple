@@ -9,7 +9,7 @@ class Competition < ActiveRecord::Base
   end
 
   def self.my_competition(user_id)
-    self.where("user_id = ?", user_id).count
+    self.where("user_id = ?", user_id)
   end
 
 end
