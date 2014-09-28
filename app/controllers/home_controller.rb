@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def show
-    @my_competition_count = Competition.get_total_matching_count(current_user.id)
+    @my_competition_count = Competition.my_competition(current_user.id).count
     @my_average = Score.my_score(current_user.id).average("score")
   end
 
@@ -41,7 +41,7 @@ class HomeController < ApplicationController
       @now_score = Score.select_time_score(current_user.id, from, DateTime.now)
       @new_score = Score.my_score(current_user.id).last.score
       @enemy_user = Competition.get_enemy(current_user.id)
-      @my_competition = Result.get_result(@enemy_user.id)
+      @my_competition = Result.get_result(Competition.my_competition(current_user.id))
     end
 
     def set_win_loose_count

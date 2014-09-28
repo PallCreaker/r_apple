@@ -4,7 +4,7 @@
     <div class="user-info">
       <p class="user-name"><%= user.user_name %></p>
       <p class="univ"><%= set_univ_for_convert user.university %></p>
-      <p class="score"><%= Score.where("user_id = ?", user.id).maximum("score") %>点</p>
+      <p class="score"><%= Score.my_score(user.id).maximum("score") %>点</p>
       <%= link_to image_tag('/img/sensenhukoku.png', class: 'fukoku'), :controller => 'matchinglist', :action => 'create', :enemy_id => user %>
     </div>
     </div>
